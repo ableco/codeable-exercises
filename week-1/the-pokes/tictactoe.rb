@@ -116,4 +116,4 @@ def tictactoe()
 
 end
 
-puts tictactoe()
+tictactoe()
