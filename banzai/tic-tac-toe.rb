@@ -49,7 +49,7 @@ def get_index(arr, val)
 end
 
 def who_wins?(g_state)
-  board = [*0..$level**2 -1].each_slice($level).to_a
+  board = [*0..($level ** 2 - 1)].each_slice($level).to_a
   winConditions = board + board.transpose
   diag = (0..(board.count - 1)).collect { |cell| board[cell][cell] }
   diag2 = (0..(board.count - 1)).collect { |cell| board.reverse[cell][cell] }.reverse
