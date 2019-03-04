@@ -73,7 +73,7 @@ def tictactoe()
   player = "X"
   bot = "O"
 
-  table = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+  table = Array.new(9," ")
 
   while (band == false) do
 
