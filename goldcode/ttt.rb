@@ -59,12 +59,11 @@ class Tic_tac_toe
         (!@p1_array[2].empty? && !@p1_array[5].empty? && !@p1_array[8].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
         (!@p1_array[6].empty? && !@p1_array[7].empty? && !@p1_array[8].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
         (!@p1_array[0].empty? && !@p1_array[3].empty? && !@p1_array[6].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
-        (!@p1_array[0].empty? && !@p1_array[1].empty? && !@p1_array[2].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
         #Cross
         (!@p1_array[0].empty? && !@p1_array[4].empty? && !@p1_array[8].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
         (!@p1_array[2].empty? && !@p1_array[4].empty? && !@p1_array[6].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
         #Inside
-        (!@p1_array[1].empty? && !@p1_array[4].empty? && !@p1_array[6].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
+        (!@p1_array[1].empty? && !@p1_array[4].empty? && !@p1_array[7].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
         (!@p1_array[3].empty? && !@p1_array[4].empty? && !@p1_array[5].empty?) ? (winner = true;puts "Player 1 Won";break) : winner = false
   
   
@@ -76,25 +75,21 @@ class Tic_tac_toe
         (!@p2_array[2].empty? && !@p2_array[5].empty? && !@p2_array[8].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
         (!@p2_array[6].empty? && !@p2_array[7].empty? && !@p2_array[8].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
         (!@p2_array[0].empty? && !@p2_array[3].empty? && !@p2_array[6].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
-        (!@p2_array[0].empty? && !@p2_array[2].empty? && !@p2_array[2].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
-        (!@p2_array[0].empty? && !@p2_array[2].empty? && !@p2_array[2].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
+        (!@p2_array[0].empty? && !@p2_array[1].empty? && !@p2_array[2].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
         #Cross
         (!@p2_array[0].empty? && !@p2_array[4].empty? && !@p2_array[8].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
         (!@p2_array[2].empty? && !@p2_array[4].empty? && !@p2_array[6].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
         #Inside
-        (!@p2_array[2].empty? && !@p2_array[4].empty? && !@p2_array[6].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
+        (!@p2_array[1].empty? && !@p2_array[4].empty? && !@p2_array[7].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
         (!@p2_array[3].empty? && !@p2_array[4].empty? && !@p2_array[5].empty?) ? (winner = true;puts "Player 2 Won";break) : winner = false
       
       steps += 1
       end
-      puts "DRAWW"
+      if winner == false
+        puts "DRAW"
+      end
     end
-  
-  
-    def show
-      puts @p1_array
-    end
-   
+    
   end
   
   juego = Tic_tac_toe.new()
