@@ -1,7 +1,7 @@
 begin
     puts eval(gets.chomp)
-  rescue SyntaxError=>e
+  rescue SyntaxError
     puts "Error: Parenthesis is not closed"
-  rescue ZeroDivisionError =>e
+  rescue ZeroDivisionError
     puts "Error: Zero division is not allowed"
 end
