@@ -59,7 +59,7 @@
     
     jugada_correcta = false
 
-    while not jugada_correcta do 
+    until jugada_correcta do 
     puts "Por favor selecciona un espacio : "
     dec_usuario = gets.chomp.downcase
 
