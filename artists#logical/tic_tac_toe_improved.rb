@@ -161,4 +161,4 @@ if result == ""
     result = validate_winner(array_jugadas, "1")
     puts "El ganador eres tú!!! 🎉  🙌  🙌  🎉" if result != ""
 end
-puts "Empataron!! 🤷‍♂️  🤷‍♂️" if step_jugadas == tamanio_final
+puts "Empataron!! 🤷‍♂️  🤷‍♂️" if (step_jugadas == tamanio_final) && (result == "")
