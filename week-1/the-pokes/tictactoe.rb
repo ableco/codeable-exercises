@@ -79,12 +79,12 @@ def tictactoe()
 
 
     # pos_human : Es el valor que ingresa el usuario
-    pos_human = turnHuman(notPlayed(value_human+value_bot))
+    pos_human = turnHuman(notPlayed(value_human+value_bot)).to_i
     table[pos_human-1] = player
     value_human.push(pos_human)
     
 
-    pos_bot = turnBot(notPlayed(value_human+value_bot))
+    pos_bot = turnBot(notPlayed(value_human+value_bot)).to_i
     table[pos_bot-1] = bot
     value_bot.push(pos_bot)
 
@@ -96,7 +96,7 @@ def tictactoe()
     puts "-----------"
     puts " #{table[6]} | #{table[7]} | #{table[8]} "
 
-    puts "Soy un humna #{value_human}"
+    puts "Soy un hum #{value_human}"
     puts "Soy un bot #{value_bot}"
     puts "NO JUGADAS #{notPlayed(value_human+value_bot)}"
     
