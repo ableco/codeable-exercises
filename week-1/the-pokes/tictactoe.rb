@@ -96,7 +96,7 @@ def tictactoe()
     puts "-----------"
     puts " #{table[6]} | #{table[7]} | #{table[8]} "
 
-    puts "Soy un hum #{value_human}"
+    puts "Soy un humano #{value_human}"
     puts "Soy un bot #{value_bot}"
     puts "NO JUGADAS #{notPlayed(value_human+value_bot)}"
     
