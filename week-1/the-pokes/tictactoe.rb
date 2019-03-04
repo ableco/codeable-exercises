@@ -30,17 +30,7 @@ COMBINATIONS_WIN = [
   [3,5,7]
 ]
 
-TABLE = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9
-]
+TABLE = [*1..9]
 
 def notPlayed(value)
   arrNP = TABLE - value
