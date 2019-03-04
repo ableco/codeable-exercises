@@ -117,6 +117,7 @@ step_jugadas += 1
 puts "\n" + board + "\n\n"
 msj_computador = "El computador esta jugando\n\n"
 msj_persona = "Continua tu jugada, elige un número del tablero\n\n"
+result = ""
 for n in (1..((@array_opciones.length - 1)/2))
     system "clear"
     if step_jugadas >= 5
@@ -155,5 +156,9 @@ for n in (1..((@array_opciones.length - 1)/2))
     board = creation_board (array_jugadas)
     step_jugadas += 1
     puts "\n" + board + "\n\n"
+end
+if result == ""
+    result = validate_winner(array_jugadas, "1")
+    puts "El ganador eres tú!!! 🎉  🙌  🙌  🎉" if result != ""
 end
 puts "Empataron!! 🤷‍♂️  🤷‍♂️" if step_jugadas == tamanio_final
