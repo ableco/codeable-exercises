@@ -1,4 +1,7 @@
-# this gem injects a color method to the string when it is displayed by console
+=begin
+  colorize gem required to play game
+  gem install colorize
+=end
 require 'colorize' 
 
 @level = 2
@@ -89,6 +92,8 @@ def main
       winner = who_wins? game_state
       break if winner != '-'
     end
+    system "clear"
+  
     draw_tic game_state
     if (winner == '-')
       puts "Empataste"
@@ -101,6 +106,7 @@ def main
         break
       end
     end
+    sleep(1.5)
   end
 end
 
