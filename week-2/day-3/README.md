@@ -1,4 +1,4 @@
-#Grupo conformado por:
+# Grupo conformado por:
 
 - Cristian Granda Pastor
 
