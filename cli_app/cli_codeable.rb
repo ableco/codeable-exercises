@@ -78,7 +78,7 @@ begin
    \\____\\___/ \\__,_|\\___|\\__,_|_.__/|_|\\___|
                                           
     \n ".blue
-  2.times {puts ""}
+  1.times {puts ""}
 
   puts "Type: 't title of task' to add a new todo list item.".red
   puts "Type: 't' to show your task list."
