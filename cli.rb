@@ -1,6 +1,7 @@
+#!/usr/bin/env ruby
+
 # define global variable
 $bd_name = "bd.txt"
-
 
 def read_file
   File.read($bd_name).split("\n").map { |line| line.split(" - ").map(&:strip) }
@@ -21,26 +22,16 @@ def write(task)
 end
 
 def delete(id)
- 
-  list_task=read_file
-  i=0
-  list_task.each do |elemento| 
-    if elemento[0].include?(id.to_s)
-      if id.to_s==elemento[0]  
-
-        list_task.delete_at(i) 
-      end  
-    else
-      puts "No existe tarea"  
-    end
-    i+=1
+  list_task = read_file
+  new_tasks = list_task.select { |task| task[0] != id }
+  if new_tasks == list_task
+    puts "No existe tarea"  
+    return
   end
-
-  save_file(list_task)
+  puts "Borrando task #{id}"
+  save_file(new_tasks)
   show
 end
-
-
 
 def show
   puts File.read("./bd.txt").split("\n")
@@ -56,13 +47,10 @@ if options == ""
   
 elsif options.include?("-d")
   id = ARGV[1]
-  puts "borrando task #{id}" 
   delete(id)
-  puts read_file.inspect
-  puts id
-
 else
   task = options
-  puts "agregando #{task}"
+  puts "Agregando #{task}"
   write(options)
 end
+
