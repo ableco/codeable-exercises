@@ -4,6 +4,7 @@ $task_array = []
 $id= 1
 
 def add(choice)
+  puts choice
   task = choice[4..-1] # chop the 'new' command off and get just task text
   if task.nil? == true
     puts "Empty task"
