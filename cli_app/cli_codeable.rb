@@ -5,17 +5,6 @@ $id= 1
 
 
 def add(choice)
-<<<<<<< HEAD
-  puts choice
-  task = choice[4..-1] # chop the 'new' command off and get just task text
-  if task.nil? == true
-    puts "Empty task"
-  else
-    $todolist.push(task)
-  end
-end
-=======
->>>>>>> 071b2b3df225ba292ad63126dbbeea5f50bb7466
 
   task_name = choice[2..-1] # Se come el new
   puts task.inspect
