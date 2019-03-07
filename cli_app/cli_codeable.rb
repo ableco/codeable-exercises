@@ -1,6 +1,5 @@
 require 'colorize'
 
-
 $task_array = []
 $id= 1
 
