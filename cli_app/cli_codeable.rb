@@ -3,13 +3,13 @@ require 'colorize'
 $task_array = []
 $id= 1
 
-def add(str)
-  task = str[4..-1] # Se come el new
-  if task.nil? == true
+def add(choice)
+  task_name = choice[4..-1] # Se come el new
+  if task_name.nil? == true
     puts "Empty task"
   else
-    ad = {id: $id, task_name: task}
-    $task_array.push(ad)
+    task_hash = {id: $id, task_name: task_name}
+    $task_array.push(task_hash)
     $id += 1
   end
 end
@@ -20,7 +20,7 @@ def delete(choice)
   show
 end
 
-def show()
+def show
   $task_array.each do |task|    
     indent = (3 - task[:id].to_s.length) 
     indent = 0 if indent < 0
