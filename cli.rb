@@ -2,7 +2,7 @@
 $bd_name = "bd.txt"
 
 def read_file
-  File.read($bd_name).split("\n").map { |line| line.split("-").map(&:strip) }
+  File.read($bd_name).split("\n").map { |line| line.split(" - ").map(&:strip) }
 end
 
 def save_file(tasks)
@@ -25,16 +25,16 @@ end
 
 
 def show
-  puts File.read("./file.txt")
+  puts File.read($bd_name).split("\n")
 end
 
-puts ARGV.inspect
+# puts ARGV.inspect
 
 options = ARGV.join(" ") 
 
 if options == ""
-  puts "Listando"
-  
+  # puts "Listando"
+  show
 elsif options.include?("-d")
   id = ARGV[1]
   puts "borrando task #{id}" 
@@ -42,8 +42,3 @@ else
   task = options
   puts "agregando #{task}"
 end
-
-# options with case
-
-p read_file
-write(options)
