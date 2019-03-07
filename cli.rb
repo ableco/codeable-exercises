@@ -16,7 +16,7 @@ def write(task)
   new_task = [(last_index + 1).to_s, task]
   list_task << new_task
   save_file(list_task)
-  p read_file
+  show
 end
 
 def delete
@@ -41,4 +41,5 @@ elsif options.include?("-d")
 else
   task = options
   puts "agregando #{task}"
+  write(options)
 end
