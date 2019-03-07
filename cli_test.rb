@@ -27,4 +27,40 @@ RSpec.describe "Test cli" do
 
   end
   
+  context "in method delete" do
+    it "delete 1 task return tasks -1" do
+      tasks = read_file
+      delete("3")
+      tasks_new = read_file
+      expect(tasks_new.length).to eq(tasks.length-1)
+
+    end
+
+    it "delete 2 task return tasks -2" do
+      tasks = read_file
+      delete("3")
+      delete("2")
+      tasks_new = read_file
+      expect(tasks_new.length).to eq(tasks.length-2)
+
+    end
+
+    it "delete 1 task doesn't exist , return original tasks" do
+      tasks = read_file
+      delete("6")
+      tasks_new = read_file
+      expect(tasks_new.length).to eq(tasks.length)
+
+    end
+
+    it "delete 1 task doesn't exist , return original tasks" do
+      tasks = read_file
+      mesg_error=delete("6")
+      expect(mesg_error).to eq("No existe tarea")
+
+    end
+
+  end
+
+
 end
