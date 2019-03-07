@@ -43,7 +43,7 @@ end
 
 
 def show
-  puts File.read("./bd.txt")
+  puts File.read("./bd.txt").split("\n")
 end
 
 # puts ARGV.inspect
@@ -52,7 +52,7 @@ options = ARGV.join(" ")
 
 if options == ""
   puts "Listando"
-  puts read_file.inspect
+  puts show
   
 elsif options.include?("-d")
   id = ARGV[1]
