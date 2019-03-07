@@ -75,15 +75,14 @@ begin
    / ___|___   __| | ___  __ _| |__ | | ___ 
   | |   / _ \\ / _` |/ _ \\/ _` | '_ \\| |/ _ \\
   | |__| (_) | (_| |  __/ (_| | |_) | |  __/
-   \\____\\___/ \\__,_|\\___|\\__,_|_.__/|_|\\___|
-                                          
-    \n ".blue
+   \\____\\___/ \\__,_|\\___|\\__,_|_.__/|_|\\___|                                  
+  ".blue
   1.times {puts ""}
 
-  puts "Type: 't title of task' to add a new todo list item.".red
-  puts "Type: 't' to show your task list."
-  puts "Type: 't -d [task number]'' to complete a task, or 'complete all' to clear."
-  puts "Type: 'quit' or 'q' to quit."
+  puts "Type: 't title of task' to add a new todo list item.".yellow
+  puts "Type: 't' to show your task list.".yellow
+  puts "Type: 't -d [task number]'' to complete a task, or 'complete all' to clear.".yellow
+  puts "Type: 'quit' or 'q' to quit.".yellow
 
   puts ""
   show
