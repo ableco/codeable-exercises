@@ -24,8 +24,17 @@ end
 
 def delete(choice)
   id = choice[5..-1].to_i #se come el delete
+  number_tasks_before = $task_array.length
   $task_array.delete_if { |hash| (hash[:id] == id) }
-  puts "se elimino la #{id} tarea"
+  number_tasks_after = $task_array.length
+
+  if number_tasks_after == number_tasks_before
+    puts "tarea fuera de rango"
+  else
+    puts "se elimino la #{id} tarea"
+    show
+  end
+  
 end
 
 def show
