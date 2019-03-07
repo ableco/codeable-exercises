@@ -10,7 +10,13 @@ def save_file(tasks)
   File.write($bd_name, newTasks)
 end
 
-def write
+def write(task)
+  list_task = read_file
+  last_index = (list_task[list_task.length - 1][0]).to_i
+  new_task = [(last_index + 1).to_s, task]
+  list_task << new_task
+  save_file(list_task)
+  p read_file
 end
 
 def delete
@@ -36,4 +42,3 @@ else
   task = options
   puts "agregando #{task}"
 end
-
