@@ -38,7 +38,7 @@ def delete(choice)
 end
 
 def show
-  $task_array.each do |task|    
+  $task_array.each do |task|
     indent = (3 - task[:id].to_s.length) 
     indent = 0 if indent < 0
     puts "#{task[:id]}-".green + " "*indent + "#{task[:task_name]}"
