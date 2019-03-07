@@ -8,10 +8,17 @@ def delete
 end
 
 puts ARGV.inspect
-task = ARGV[0]
-id = ARGV[1] || 0
 
-puts task
-puts id
+options = ARGV.join(" ") 
+
+if options == ""
+  puts "Listando"
+elsif options.include?("-d")
+  id = ARGV[1]
+  puts "borrando task #{id}" 
+else
+  task = options
+  puts "agregando #{task}"
+end
 
 # options with case
