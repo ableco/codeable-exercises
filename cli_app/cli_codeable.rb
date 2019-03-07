@@ -3,25 +3,17 @@ require 'colorize'
 $task_array = []
 $id= 1
 
+
 def add(choice)
-  task = choice[4..-1] # chop the 'new' command off and get just task text
-  if task.nil? == true
-    puts "Tarea vacia"
-  else
-    $todolist.push(task)
-  end
-end
 
-def add(str)
-
-  task = str[2..-1] # Se come el new
+  task_name = choice[2..-1] # Se come el new
   puts task.inspect
-  if task.empty? == true
+  if task_name.empty? == true
     puts "Tarea Vacia"
 
   else
-    ad = {id: $id, name: task}
-    $task_array.push(ad)
+    task_hash = {id: $id, name: task}
+    $task_array.push(task_hash)
     $id += 1
   end
 end
@@ -32,9 +24,11 @@ def delete(choice)
   show
 end
 
-def show()
-  $task_array.each do |task|
-	puts "#{task[:id]}. #{task[:name]}"
+def show
+  $task_array.each do |task|    
+    indent = (3 - task[:id].to_s.length) 
+    indent = 0 if indent < 0
+    puts "#{task[:id]}-".green + " "*indent + "#{task[:task_name]}"
 	end
 end
 
