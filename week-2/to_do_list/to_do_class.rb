@@ -21,6 +21,12 @@ class ToDo
   def delete(id)
     #CESAR
     #Reemplaza un elemento de @task_list con ""
+    if id <= @task_list.length
+      @task_list[id-1] = ""
+      list
+    else
+      puts "ID no existe"
+    end
   end
 
 end
