@@ -13,8 +13,9 @@ def add(choice)
 end
 
 def add(str)
-  task = str[4..-1] # Se come el new
-  if task.nil? == true
+  task = str[2..-1] # Se come el new
+  puts task.inspect
+  if task.empty? == true
     puts "Empty task"
   else
     ad = {id: $id, name: task}
@@ -24,7 +25,7 @@ def add(str)
 end
 
 def delete(choice)
-  id = choice[7..-1].to_i #se come el delete
+  id = choice[5..-1].to_i #se come el delete
   $task_array.delete_if { |hash| (hash[:id] == id) }
   show
 end
@@ -44,16 +45,16 @@ def menu
   print "> "
   choice = gets.chomp
   case choice
-  when /(new)/
-    add(choice)
-  when /(delete)/
+  when /(t\s\-d)/
     delete(choice)
+  when /(t\s)/
+    add(choice)
   when "show"
     show
   when "quit"
     quit
   else
-    puts ""
+    puts "Error: unexpected input"
   end
   menu
 end
@@ -75,7 +76,6 @@ begin
   puts "Tipea: 't' to show your task list."
   puts "Tipea: 't -d [task number]'' to complete a task, or 'complete all' to clear."
   puts "Tipea: 'quit' to quit. This will save your tasks for next time."
-  puts "Tipea: 'help' for a full list of commands"
   puts ""
   show
   menu
