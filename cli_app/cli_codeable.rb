@@ -7,12 +7,11 @@ $id= 1
 def add(choice)
 
   task_name = choice[2..-1] # Se come el new
-  puts task.inspect
   if task_name.empty? == true
     puts "Tarea Vacia"
 
   else
-    task_hash = {id: $id, name: task}
+    task_hash = {id: $id, task_name: task_name}
     $task_array.push(task_hash)
     $id += 1
   end
@@ -55,7 +54,7 @@ end
 
 begin
   while true == true
-    logo ="
+  puts logo ="
     ____          _            _     _      
    / ___|___   __| | ___  __ _| |__ | | ___ 
   | |   / _ \\ / _` |/ _ \\/ _` | '_ \\| |/ _ \\
