@@ -83,7 +83,7 @@ begin
   puts "Type: 't title of task' to add a new todo list item.".red
   puts "Type: 't' to show your task list."
   puts "Type: 't -d [task number]'' to complete a task, or 'complete all' to clear."
-  puts "Type: 'quit' or 'q' to quit. This will save your tasks for next time."
+  puts "Type: 'quit' or 'q' to quit."
 
   puts ""
   show
