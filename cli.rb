@@ -10,11 +10,13 @@ def save_file(tasks)
   File.write($bd_name, newTasks)
 end
 
-def write
+def write(task)
   list_task = read_file
-  new_task = [4.to_s, @options]
+  last_index = (list_task[list_task.length - 1][0]).to_i
+  new_task = [(last_index + 1).to_s, task]
   list_task << new_task
-  p list_task
+  save_file(list_task)
+  p read_file
 end
 
 def delete
@@ -28,20 +30,20 @@ end
 
 puts ARGV.inspect
 
-@options = ARGV.join(" ") 
+options = ARGV.join(" ") 
 
-if @options == ""
+if options == ""
   puts "Listando"
   
-elsif @options.include?("-d")
+elsif options.include?("-d")
   id = ARGV[1]
   puts "borrando task #{id}" 
 else
-  task = @options
+  task = options
   puts "agregando #{task}"
 end
 
-# @options with case
+# options with case
 
 p read_file
-write
+write(options)
