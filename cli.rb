@@ -1,8 +1,14 @@
-@list 
+# define global variable
+$bd_name = "bd.txt"
+
 def read_file
-  File.read("bd.txt").split("\n").map { |line| line.split("-").map(&:strip) }
+  File.read($bd_name).split("\n").map { |line| line.split("-").map(&:strip) }
 end
 
+def save_file(tasks)
+  newTasks = tasks.map { |fil|  fil.join(' - ') }.join("\n")
+  File.write($bd_name, newTasks)
+end
 
 def write
   list_task = read_file
