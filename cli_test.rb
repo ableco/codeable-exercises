@@ -19,12 +19,18 @@ RSpec.describe "Test cli" do
     back
   end
   
-  context "in method read" do
-    it "expect read_file! return 3 elements" do
-      tasks = read_file
-      expect(tasks.length).to eq(3)
-    end
+  # context "in method read" do
+  #   it "expect read_file! return 3 elements" do
+  #     tasks = read_file
+  #     expect(tasks.length).to eq(3)
+  #   end
+  # end
 
+  context "in method show" do
+    it "expect tasks to show" do      
+      tasks = show
+      expect(tasks).to be_a Array
+    end
   end
   
 end
