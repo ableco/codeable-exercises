@@ -17,10 +17,15 @@ def add(choice)
   end
 end
 
+def all()
+  $task_array.clear
+  puts "se elimino toda la lista"
+end
+
 def delete(choice)
   id = choice[5..-1].to_i #se come el delete
   $task_array.delete_if { |hash| (hash[:id] == id) }
-  show
+  puts "se elimino la #{id} tarea"
 end
 
 def show
@@ -46,6 +51,8 @@ def menu
     exit(0)
   when "q"
     exit(0)
+  when "all"
+    all
   else
     puts "Error: unexpected input"
   end
@@ -72,6 +79,7 @@ begin
   puts ""
   show
   menu
+  all
   end
 
 rescue Interrupt => e
