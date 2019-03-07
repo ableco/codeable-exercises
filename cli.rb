@@ -5,6 +5,10 @@ end
 
 
 def write
+  list_task = read_file
+  new_task = [4.to_s, @options]
+  list_task << new_task
+  p list_task
 end
 
 def delete
@@ -18,19 +22,20 @@ end
 
 puts ARGV.inspect
 
-options = ARGV.join(" ") 
+@options = ARGV.join(" ") 
 
-if options == ""
+if @options == ""
   puts "Listando"
   
-elsif options.include?("-d")
+elsif @options.include?("-d")
   id = ARGV[1]
   puts "borrando task #{id}" 
 else
-  task = options
+  task = @options
   puts "agregando #{task}"
 end
 
-# options with case
+# @options with case
 
-puts read_file.class
+p read_file
+write
