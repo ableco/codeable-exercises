@@ -3,23 +3,16 @@ require 'colorize'
 $task_array = []
 $id= 1
 
-def add(choice)
-  task = choice[4..-1] # chop the 'new' command off and get just task text
-  if task.nil? == true
-    puts "Empty task"
-  else
-    $todolist.push(task)
-  end
-end
 
-def add(str)
-  task = str[2..-1] # Se come el new
-  puts task.inspect
-  if task.empty? == true
-    puts "Empty task"
+def add(choice)
+
+  task_name = choice[2..-1] # Se come el new
+  if task_name.empty? == true
+    puts "Tarea Vacia"
+
   else
-    ad = {id: $id, name: task}
-    $task_array.push(ad)
+    task_hash = {id: $id, task_name: task_name}
+    $task_array.push(task_hash)
     $id += 1
   end
 end
@@ -30,14 +23,12 @@ def delete(choice)
   show
 end
 
-def show()
-  $task_array.each do |task|
-	puts "#{task[:id]}. #{task[:name]}"
+def show
+  $task_array.each do |task|    
+    indent = (3 - task[:id].to_s.length) 
+    indent = 0 if indent < 0
+    puts "#{task[:id]}-".green + " "*indent + "#{task[:task_name]}"
 	end
-end
-
-def quit
-  exit(0)
 end
 
 #Refactoring menu
@@ -52,7 +43,9 @@ def menu
   when "show"
     show
   when "quit"
-    quit
+    exit(0)
+  when "q"
+    exit(0)
   else
     puts "Error: unexpected input"
   end
@@ -61,7 +54,7 @@ end
 
 begin
   while true == true
-    logo ="
+  puts logo ="
     ____          _            _     _      
    / ___|___   __| | ___  __ _| |__ | | ___ 
   | |   / _ \\ / _` |/ _ \\/ _` | '_ \\| |/ _ \\
@@ -69,13 +62,13 @@ begin
    \\____\\___/ \\__,_|\\___|\\__,_|_.__/|_|\\___|
                                           
     \n ".blue
-    2.times {puts ""}
-  print logo
   2.times {puts ""}
-  puts "Tipea: 't title of task' to add a new todo list item.".red
-  puts "Tipea: 't' to show your task list."
-  puts "Tipea: 't -d [task number]'' to complete a task, or 'complete all' to clear."
-  puts "Tipea: 'quit' to quit. This will save your tasks for next time."
+
+  puts "Type: 't title of task' to add a new todo list item.".red
+  puts "Type: 't' to show your task list."
+  puts "Type: 't -d [task number]'' to complete a task, or 'complete all' to clear."
+  puts "Type: 'quit' or 'q' to quit. This will save your tasks for next time."
+
   puts ""
   show
   menu
