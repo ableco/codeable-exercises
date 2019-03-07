@@ -1,6 +1,5 @@
 # define global variable
 $bd_name = File.expand_path('../', __FILE__) + '/bd.txt' 
-
 def read_file
   File.read($bd_name).split("\n").map { |line| line.split(" - ").map(&:strip) }
 end
@@ -32,5 +31,5 @@ def delete(id)
 end
 
 def show
-  puts File.read($bd_name).split("\n")
+  return File.read($bd_name).split("\n")
 end
