@@ -34,8 +34,3 @@ end
 def show
   puts File.read($bd_name).split("\n")
 end
-
-# puts ARGV.inspect
-
-
-
