@@ -24,7 +24,7 @@ def delete(id)
   new_tasks = list_task.select { |task| task[0] != id }
   if new_tasks == list_task
     puts "No existe tarea"  
-    return
+    return "No existe tarea"
   end
   puts "Borrando task #{id}"
   save_file(new_tasks)
