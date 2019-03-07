@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 # define global variable
 $bd_name = "bd.txt"
 
@@ -39,18 +37,5 @@ end
 
 # puts ARGV.inspect
 
-options = ARGV.join(" ") 
 
-if options == ""
-  puts "Listando"
-  puts show
-  
-elsif options.include?("-d")
-  id = ARGV[1]
-  delete(id)
-else
-  task = options
-  puts "Agregando #{task}"
-  write(options)
-end
 
