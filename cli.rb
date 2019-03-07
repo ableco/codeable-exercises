@@ -1,5 +1,5 @@
 # define global variable
-$bd_name = "bd.txt"
+$bd_name = File.expand_path('../', __FILE__) + '/bd.txt' 
 
 def read_file
   File.read($bd_name).split("\n").map { |line| line.split(" - ").map(&:strip) }
@@ -32,7 +32,7 @@ def delete(id)
 end
 
 def show
-  puts File.read("./bd.txt").split("\n")
+  puts File.read($bd_name).split("\n")
 end
 
 # puts ARGV.inspect
