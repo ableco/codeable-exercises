@@ -6,17 +6,19 @@ $id= 1
 def add(choice)
   task = choice[4..-1] # chop the 'new' command off and get just task text
   if task.nil? == true
-    puts "Empty task"
+    puts "Tarea vacia"
   else
     $todolist.push(task)
   end
 end
 
 def add(str)
+
   task = str[2..-1] # Se come el new
   puts task.inspect
   if task.empty? == true
-    puts "Empty task"
+    puts "Tarea Vacia"
+
   else
     ad = {id: $id, name: task}
     $task_array.push(ad)
@@ -36,10 +38,6 @@ def show()
 	end
 end
 
-def quit
-  exit(0)
-end
-
 #Refactoring menu
 def menu
   print "> "
@@ -52,7 +50,9 @@ def menu
   when "show"
     show
   when "quit"
-    quit
+    exit(0)
+  when "q"
+    exit(0)
   else
     puts "Error: unexpected input"
   end
@@ -69,13 +69,13 @@ begin
    \\____\\___/ \\__,_|\\___|\\__,_|_.__/|_|\\___|
                                           
     \n ".blue
-    2.times {puts ""}
-  print logo
   2.times {puts ""}
-  puts "Tipea: 't title of task' to add a new todo list item.".red
-  puts "Tipea: 't' to show your task list."
-  puts "Tipea: 't -d [task number]'' to complete a task, or 'complete all' to clear."
-  puts "Tipea: 'quit' to quit. This will save your tasks for next time."
+
+  puts "Type: 't title of task' to add a new todo list item.".red
+  puts "Type: 't' to show your task list."
+  puts "Type: 't -d [task number]'' to complete a task, or 'complete all' to clear."
+  puts "Type: 'quit' or 'q' to quit. This will save your tasks for next time."
+
   puts ""
   show
   menu
