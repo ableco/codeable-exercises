@@ -32,7 +32,7 @@ def delete(id)
 end
 
 def show
-  puts File.read("./bd.txt").split("\n")
+  File.read("./bd.txt").split("\n")
 end
 
 # puts ARGV.inspect
