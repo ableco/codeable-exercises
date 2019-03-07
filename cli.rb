@@ -1,4 +1,5 @@
-@list 
+
+
 def read_file
   File.read("bd.txt").split("\n").map { |line| line.split("-").map(&:strip) }
 end
@@ -13,7 +14,7 @@ end
 
 
 def show
-  puts File.read("./file.txt")
+  puts read_file
 end
 
 puts ARGV.inspect
@@ -33,4 +34,4 @@ end
 
 # options with case
 
-puts read_file.class
+puts show
