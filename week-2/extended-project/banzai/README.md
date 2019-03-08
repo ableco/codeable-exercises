@@ -25,6 +25,7 @@ Add alias permanent in bash fish:
 vim ~/.zshrc
 alias t="~/todo_list/main.rb" # add end file
 ```
+
 ## How to update this project
 
 ```
