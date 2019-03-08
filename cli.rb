@@ -31,5 +31,5 @@ def delete(id)
 end
 
 def show
-  return File.read($bd_name).split("\n")
+  File.read($bd_name).split("\n")
 end

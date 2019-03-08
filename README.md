@@ -6,11 +6,11 @@ Install gems: `bundle install`
 
 ## Add alias for script
 
-Give permissions main.rb: `chmod +x main.rb`
+Give permissions execution to init.sh: `chmod +x main.rb`
 
-Install command: `chmod +x init.sh`
+Install files: `./init.sh`
 
-Add alias: `alias t="~/t/main.rb"`
+Add alias: `alias t="~/todo_list/main.rb"`
 
 Add alias permanent:
 
