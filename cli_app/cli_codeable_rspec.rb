@@ -1,11 +1,11 @@
 require './cli_codeable.rb'
-# T1.Add a task:
+# T1.Add a task: (Deyvi)
 # - Read more about El Niño
 # - Write my first blog post!
-# T2 List the tasks
-# T3 Delete a task
-# T4 Delete a non existant ID: show an error
-# T5 Use an unexpected flag: show an error
+# T2 List the tasks (Mayra)
+# T3 Delete a task (Ricardo)
+# T4 Delete a non existant ID: show an error (Diego)
+# T5 Use an unexpected flag: show an error (Workteam)
 # T6 Add new tasks, ID should be the consecutive integer (skipping the ones deleted)
 
 RSpec.describe "test #cli_codeable" do
