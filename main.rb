@@ -10,8 +10,10 @@ if options == ""
 elsif options.include?("-d")
   id = ARGV[1]
   delete(id)
+  puts show
 else
   task = options
   puts "Agregando #{task}"
   write(options)
+  puts show
 end

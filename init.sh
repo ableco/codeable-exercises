@@ -1,5 +1,4 @@
 #!/bin/bash
-chmod +x main.rb
 rm -rf ~/todo_list
 mkdir -p ~/todo_list
 chmod +x main.rb
