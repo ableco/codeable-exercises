@@ -5,13 +5,19 @@ def operation(user_input, task_list)
   #Ejecuta acción según el input del usuario
 
   if !!(user_input =~ /^t$/) 
-    task_list.list.each {|task| puts task}
+    resp = task_list.list
+    imprimir(resp)
   elsif !!(user_input =~ /^t\s[^-]+/)
     user_input[0..1] = ""
     task_list.add(user_input)
   elsif !!(user_input =~ /^t\s-d\s\d+$/)
     user_input[0..4] = ""
-    task_list.delete(user_input.to_i)
+    resp = task_list.delete(user_input.to_i)
+    if resp.class == String
+      puts resp
+    else
+      imprimir(resp)
+    end
   elsif !!(user_input =~ /^q$/)
     puts 'Gracias por usar To Do List "Venganza"'
     exit
@@ -29,6 +35,15 @@ def instructions
   puts "Para eliminar una tarea digita: t -d [numero de tarea]"
   puts "Para salir del To Do List digita: q"
   puts "***************************************************************"
+end
+
+def imprimir(array)
+  if array == []
+    puts "[Lista vacia] \n ¿Te llevas bien con todos?"
+  else
+    puts "Esta es tu lista de venganza \n =============================="
+    array.each {|task| puts task}
+  end
 end
 
 system 'clear'
