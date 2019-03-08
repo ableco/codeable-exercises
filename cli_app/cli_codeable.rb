@@ -3,7 +3,6 @@ require 'colorize'
 $task_array = []
 $id= 1
 
-
 def add(choice)
 
   task_name = choice[2..-1] # Se come el new
