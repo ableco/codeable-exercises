@@ -5,7 +5,7 @@ def operation(user_input, task_list)
   #Ejecuta acción según el input del usuario
 
   if !!(user_input =~ /^t$/) 
-    task_list.list
+    task_list.list.each {|task| puts task}
   elsif !!(user_input =~ /^t\s[^-]+/)
     user_input[0..1] = ""
     task_list.add(user_input)
