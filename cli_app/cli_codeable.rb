@@ -8,7 +8,7 @@ def add(choice)
 
   task_name = choice[2..-1] # Se come el new
   if task_name.empty? == true
-    puts "Tarea Vacia"
+    puts "Empty task"
 
   else
     task_hash = {id: $id, task_name: task_name}
@@ -19,7 +19,7 @@ end
 
 def all()
   $task_array.clear
-  puts "se elimino toda la lista"
+  puts "All list was clear"
 end
 
 def delete(choice)
@@ -29,15 +29,18 @@ def delete(choice)
   number_tasks_after = $task_array.length
 
   if number_tasks_after == number_tasks_before
-    puts "tarea fuera de rango"
+    puts "Task ID doesn't exist"
   else
-    puts "se elimino la #{id} tarea"
+    puts "Task #{id} was deleted".yellow
     show
   end
   
 end
 
 def show
+  if $task_array.empty? 
+    return puts "There are not tasks".green
+  end
   $task_array.each do |task|    
     indent = (3 - task[:id].to_s.length) 
     indent = 0 if indent < 0
@@ -47,14 +50,16 @@ end
 
 #Refactoring menu
 def menu
-  print "> "
+  print "> ".cyan
   choice = gets.chomp
   case choice
-  when /(t\s\-d)/
+  when /^(t\s\-d\s.)/
     delete(choice)
+  when /(t\s\-)/
+    puts "Error: unexpected input".red
   when /(t\s)/
     add(choice)
-  when "show"
+  when "t"
     show
   when "quit"
     exit(0)
@@ -63,7 +68,7 @@ def menu
   when "all"
     all
   else
-    puts "Error: unexpected input"
+    puts "Error: unexpected input".red
   end
   menu
 end
@@ -75,15 +80,14 @@ begin
    / ___|___   __| | ___  __ _| |__ | | ___ 
   | |   / _ \\ / _` |/ _ \\/ _` | '_ \\| |/ _ \\
   | |__| (_) | (_| |  __/ (_| | |_) | |  __/
-   \\____\\___/ \\__,_|\\___|\\__,_|_.__/|_|\\___|
-                                          
-    \n ".blue
+   \\____\\___/ \\__,_|\\___|\\__,_|_.__/|_|\\___|                                  
+  ".blue
   1.times {puts ""}
 
-  puts "Type: 't title of task' to add a new todo list item.".red
-  puts "Type: 't' to show your task list."
-  puts "Type: 't -d [task number]'' to complete a task, or 'complete all' to clear."
-  puts "Type: 'quit' or 'q' to quit."
+  puts "Type: 't title of task' to add a new todo list item.".cyan
+  puts "Type: 't' to show your task list.".cyan
+  puts "Type: 't -d [task number]' to complete a task and clean.".cyan
+  puts "Type: 'quit' or 'q' to quit.".cyan
 
   puts ""
   show
