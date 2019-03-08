@@ -23,6 +23,7 @@ def operation(user_input, task_list)
     exit
   else
     puts "Error: Unexpected input"
+    return "Error: Unexpected input"
   end
 end
 
@@ -44,17 +45,4 @@ def imprimir(array)
     puts "Esta es tu lista de venganza \n =============================="
     array.each {|task| puts task}
   end
-end
-
-system 'clear'
-instructions
-puts "Lista, agrega o elimina tus tareas a continuación:"
-to_do = ToDo.new()
-
-while true
-  input = gets.chomp
-  system 'clear'
-  instructions
-  operation(input,to_do)
-  puts "Lista, agrega o elimina tus tareas a continuación:"
 end
