@@ -12,9 +12,16 @@ Install files: `./init.sh`
 
 Add alias: `alias t="~/todo_list/main.rb"`
 
-Add alias permanent:
+Add alias permanent in bash:
 
 ```
-nano ~/.bashrc
+vim ~/.bashrc
+alias t="~/todo_list/main.rb" # add end file
+```
+
+Add alias permanent in bash fish:
+
+```
+vim ~/.zshrc
 alias t="~/todo_list/main.rb" # add end file
 ```
