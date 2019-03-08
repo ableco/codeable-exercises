@@ -1,7 +1,7 @@
 require './cli_codeable.rb'
 # T1.Add a task:
-# Read more about El Niño
-# Write my first blog post!
+# - Read more about El Niño
+# - Write my first blog post!
 # T2 List the tasks
 # T3 Delete a task
 # T4 Delete a non existant ID: show an error
