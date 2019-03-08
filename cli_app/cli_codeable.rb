@@ -16,9 +16,10 @@ def add(choice)
   end
 end
 
-def all()
+def clear_all
   $task_array.clear
   puts "All list was clear"
+  return $task_array
 end
 
 def delete(choice)
@@ -65,7 +66,7 @@ def menu
   when "q"
     exit(0)
   when "all"
-    all
+    clear_all
   else
     puts "Error: unexpected input".red
   end
