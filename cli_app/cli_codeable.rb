@@ -38,14 +38,10 @@ def delete(choice)
 end
 
 def show
-<<<<<<< HEAD
-  $task_array.each do |task|
-=======
   if $task_array.empty? 
     return puts "There are not tasks".green
   end
   $task_array.each do |task|    
->>>>>>> b484a21c116a74af5fd9b196cf66fdbf137756d6
     indent = (3 - task[:id].to_s.length) 
     indent = 0 if indent < 0
     puts "#{task[:id]}-".green + " "*indent + "#{task[:task_name]}"
