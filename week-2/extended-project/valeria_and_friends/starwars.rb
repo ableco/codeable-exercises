@@ -1,10 +1,5 @@
 require "csv"
-
-require "./top5s/top5_expensive"
-require "./top5s/top5_fastest"
-require "./top5s/top5_heaviest"
-require "./top5s/top5_popuplanets"
-require "./top5s/top5_tallest"
+require "./top5s/tops"
 
 def instructions
   puts "---------------------------------"
@@ -24,19 +19,19 @@ def put_inchart
   case num
   when 1
     puts "MOST EXPENSIVE VEHICLES \n"
-    print(top_expensive_vehicles, "top_expensive_vehicles")
+    print(most_expensive_vehicles, "top_expensive_vehicles")
   when 2
     puts "TALLEST PEOPLE \n"
-    print(top_tallest_people, "top_tallest_people")
+    print(tallest_people, "top_tallest_people")
   when 3
     puts "MOST POPULATED PLANETS \n"
-    print(top_populated_planets, "top_populated_planets")
+    print(most_populated_planets, "top_populated_planets")
   when 4
     puts "HEAVY ONES \n"
-    print(top_heavy_ones, "top_heavy_ones")
+    print(heaviest_people, "top_heavy_ones")
   when 5
     puts "FASTEST VEHICLES \n"
-    print(top_fastest_vehicles, "top_fastest_vehicles")
+    print(fastest_vehicles, "top_fastest_vehicles")
   else
     puts "there is no top like that! \n"
   end

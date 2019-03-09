@@ -49,11 +49,62 @@ def get_top5_key_relevant(top5_arr, attr1, attr2, attr3)
     end
 end
 
-json = fetch_data("people")
-results = get_results(json)
-arr_main_attribute = get_main_attribute(results, "mass")
-arr_integers = parse_values_to_in(arr_main_attribute)
-arr_index_ordered = get_index_ordered(arr_integers, results)
-end_arr = get_top5_key_relevant(arr_index_ordered, "name", "mass", "height")
+def heaviest_people
+    json = fetch_data("people")
+    results = get_results(json)
+    arr_main_attribute = get_main_attribute(results, "mass")
+    arr_integers = parse_values_to_in(arr_main_attribute)
+    arr_index_ordered = get_index_ordered(arr_integers, results)
+    end_arr = get_top5_key_relevant(arr_index_ordered, "name", "mass", "height")
 
-puts end_arr.inspect
+    headers = %w(name mass height)
+    end_arr.prepend(headers)
+end
+
+def most_expensive_vehicles
+    json = fetch_data("vehicles")
+    results = get_results(json)
+    arr_main_attribute = get_main_attribute(results, "cost_in_credits")
+    arr_integers = parse_values_to_in(arr_main_attribute)
+    arr_index_ordered = get_index_ordered(arr_integers, results)
+    end_arr = get_top5_key_relevant(arr_index_ordered, "name", "cost_in_credits", "manufacturer")
+
+    headers = %w(name cost_in_credits manufacturer)
+    end_arr.prepend(headers)
+end
+
+def fastest_vehicles
+    json = fetch_data("vehicles")
+    results = get_results(json)
+    arr_main_attribute = get_main_attribute(results, "max_atmosphering_speed")
+    arr_integers = parse_values_to_in(arr_main_attribute)
+    arr_index_ordered = get_index_ordered(arr_integers, results)
+    end_arr = get_top5_key_relevant(arr_index_ordered, "name", "max_atmosphering_speed", "vehicle_class")
+
+    headers = %w(name max_atmosphering_speed vehicle_class)
+    end_arr.prepend(headers)
+end
+
+def most_populated_planets
+    json = fetch_data("planets")
+    results = get_results(json)
+    arr_main_attribute = get_main_attribute(results, "population")
+    arr_integers = parse_values_to_in(arr_main_attribute)
+    arr_index_ordered = get_index_ordered(arr_integers, results)
+    end_arr = get_top5_key_relevant(arr_index_ordered, "name", "population", "diameter")
+
+    headers = %w(name population diameter)
+    end_arr.prepend(headers)
+end
+
+def tallest_people
+    json = fetch_data("people")
+    results = get_results(json)
+    arr_main_attribute = get_main_attribute(results, "height")
+    arr_integers = parse_values_to_in(arr_main_attribute)
+    arr_index_ordered = get_index_ordered(arr_integers, results)
+    end_arr = get_top5_key_relevant(arr_index_ordered, "name", "height", "gender")
+
+    headers = %w(name height gender)
+    end_arr.prepend(headers)
+end
