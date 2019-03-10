@@ -1,5 +1,10 @@
 # require "csv"
-# require "./top5s/tops"
+
+# require "./top5s/top5_expensive"
+# require "./top5s/top5_fastest"
+# require "./top5s/top5_heaviest"
+# require "./top5s/top5_popuplanets"
+# require "./top5s/top5_tallest"
 
 # def instructions
 #   puts "---------------------------------"
@@ -19,19 +24,19 @@
 #   case num
 #   when 1
 #     puts "MOST EXPENSIVE VEHICLES \n"
-#     print(most_expensive_vehicles, "top_expensive_vehicles")
+#     print(top_expensive_vehicles, "top_expensive_vehicles")
 #   when 2
 #     puts "TALLEST PEOPLE \n"
-#     print(tallest_people, "top_tallest_people")
+#     print(top_tallest_people, "top_tallest_people")
 #   when 3
 #     puts "MOST POPULATED PLANETS \n"
-#     print(most_populated_planets, "top_populated_planets")
+#     print(top_populated_planets, "top_populated_planets")
 #   when 4
 #     puts "HEAVY ONES \n"
-#     print(heaviest_people, "top_heavy_ones")
+#     print(top_heavy_ones, "top_heavy_ones")
 #   when 5
 #     puts "FASTEST VEHICLES \n"
-#     print(fastest_vehicles, "top_fastest_vehicles")
+#     print(top_fastest_vehicles, "top_fastest_vehicles")
 #   else
 #     puts "there is no top like that! \n"
 #   end
@@ -52,13 +57,21 @@
 # end
 
 # def print(array_imp, name_top)
-#   array_1, array_2, array_3, array_4, array_5, array_6 = array_imp.each_slice(1).to_a
-#   puts array_1.join(" | ")
-#   puts array_2.join(" | ")
-#   puts array_3.join(" | ")
-#   puts array_4.join(" | ")
-#   puts array_5.join(" | ")
-#   puts array_6.join(" | ")
+
+#   c = array_imp.transpose
+#   d = c.map do |x|
+#     x.max_by(&:length).length
+#   end
+
+#   array_imp.each do |row|
+#     row.map!.with_index do |item, index|
+#       longest = d[index]
+#       lack_of_spaces = longest - item.length
+#       spaces = " " * lack_of_spaces
+#       "| #{item}#{spaces} "
+#     end
+#     puts "#{row.join('') }|"
+#   end
 
 #   csv_q = csv_file?
 #   create_csv(name_top, array_imp) if csv_q
@@ -76,21 +89,17 @@
 
 
 col_labels = { date: "Date", from: "From", subject: "Subject" }
+
 arr = [{date: "2014-12-01", from: "Ferdous", subject: "Homework this week"},
   {date: "2014-12-01", from: "Dajana", subject: "Keep on coding! :)"},
   {date: "2014-12-02", from: "Ariane", subject: "Re: Homework this week"}]
 
-# col_labels = ["Date", "From", "Subject"]
-# arr = [["2014-12-01", "Ferdous", "Homework this week"],
-#   ["2014-12-01", "Dajana", "Keep on coding! :)"],
-#   ["2014-12-02", "Ariane", "Re: Homework this week"]]
-
-@columns = col_labels.each_with_object({}) { |(llave,valor),h|
-  h[llave] = {
-    label: valor,
-    width: [arr.map { |g| g[llave].size }.max, valor.size].max
-  }
-}
+@columns = col_labels.each_with_object({}) { |(col,label),h|
+  h[col] = { label: label,
+              width: [arr.map { |g| g[col].size }.max, label.size].max } }
+  # => {:date=>    {:label=>"Date",    :width=>10},
+  #     :from=>    {:label=>"From",    :width=>7},
+  #     :subject=> {:label=>"Subject", :width=>22}}
 
 def write_header
   puts "| #{ @columns.map { |_,g| g[:label].ljust(g[:width]) }.join(' | ') } |"
