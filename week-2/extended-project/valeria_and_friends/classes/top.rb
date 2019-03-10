@@ -4,6 +4,7 @@ require "json"
 class Top
   BASE_URL = "https://swapi.co/api/"
   TOP_NUMBER = 5
+  RELEVANT_DATA = "results"
 
   def initialize (query, name_main_atributte, relevant_keys)
     @query = query
@@ -20,13 +21,23 @@ class Top
     final_top
   end
 
-  def fetch_data(qquery)
-    @http = HTTP.get(BASE_URL + qquery + "/")
-    JSON.parse(@http)
+  # def fetch_data(query)
+  #   @http = HTTP.get(BASE_URL + query + "/")
+  #   JSON.parse(@http)
+  # end
+
+  def fetch_data(query)
+    data = File.open("#{query}.json")
+    response = ""
+    data.each do |x|
+      response << x
+    end
+    data.close
+    JSON.parse(response)
   end
 
   def get_results(json_complete)
-    json_complete["results"]
+    json_complete[RELEVANT_DATA]
   end
 
   def get_main_attribute(result, main_attribute)
