@@ -2,16 +2,16 @@ require "csv"
 
 class System
   TEXT_INSTRUCTIONS = [
-    "TOP's 5",
-    "---------------------------------",
-    "1. Most expensive vehicles",
-    "2. Fastest vehicles",
-    "3. Tallest people",
-    "4. Heavy ones",
-    "5. Most populated planets",
+    "+------------------------------------------+",
+    "  5 Star Wars curiosities you didn't know:",
+    "+------------------------------------------+",
+    "  1. Most expensive vehicles",
+    "  2. Fastest vehicles",
+    "  3. Tallest people",
+    "  4. Heavy ones",
+    "  5. Most populated planets",
     "",
-    "6. Exit",
-    "---------------------------------",
+    "  6. Exit",
     "",
     "Choose one"
   ]
@@ -46,19 +46,19 @@ class System
     index_tops = choise - 1
     case choise
     when 1
-      puts "MOST EXPENSIVE VEHICLES \n"
+      puts "MOST EXPENSIVE VEHICLES of Star Wars\n"
       return tops[index_tops]
     when 2
-      puts "FASTEST VEHICLES \n"
+      puts "FASTEST VEHICLES of Star Wars\n"
       return tops[index_tops]
     when 3
-      puts "TALLEST PEOPLE \n"
+      puts "TALLEST PEOPLE of Star Wars\n"
       return tops[index_tops]
     when 4
-      puts "HEAVY ONES \n"
+      puts "HEAVY ONES of Star Wars\n"
       return tops[index_tops]
     when 5
-      puts "MOST POPULATED PLANETS \n"
+      puts "MOST POPULATED PLANETS of Star Wars\n"
       return tops[index_tops]
     when 6
       puts "¡Bye bye! \n"
@@ -79,13 +79,13 @@ class System
     end
 
     arr_print.each do |row|
-      row.map!.with_index do |item, index|
+      pretty = row.map.with_index do |item, index|
         longest = d[index]
         lack_of_spaces = longest - item.length
         spaces = " " * lack_of_spaces
         "| #{item}#{spaces} "
       end
-      puts "#{row.join('') }|"
+      puts "#{pretty.join('') }|"
     end
   end
 

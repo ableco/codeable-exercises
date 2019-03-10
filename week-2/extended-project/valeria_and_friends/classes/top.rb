@@ -22,6 +22,7 @@ class Top
     main_atrritbutes = get_main_attribute(results, @name_main_attr)
     top_ordered = get_top_of_results(main_atrritbutes, results)
     final_top = build_final_top(@relevant_keys, top_ordered)
+
     @printable_data = final_top
     final_top
   end
