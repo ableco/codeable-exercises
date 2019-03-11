@@ -12,7 +12,6 @@ def initialization_scrapping
 end
 
 def get_score(name_movie)
-  puts name_movie
   index_movie = $response.index(name_movie, $index_general)
   index_rating = $response.index(">:", index_movie) + 3
   $response[index_rating..(index_rating + 2)].gsub("<","").to_i.to_s
