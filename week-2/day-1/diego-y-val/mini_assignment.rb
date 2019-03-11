@@ -1,5 +1,3 @@
-#de Diego C y Valeria
-
 require "http"
 require "json"
 
