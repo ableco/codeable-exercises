@@ -19,8 +19,8 @@ class Top
   def give_me_the_top
     json_answer = fetch_data(@query)
     results = get_results(json_answer)
-    main_atrritbutes = get_main_attribute(results, @name_main_attr)
-    top_ordered = get_top_of_results(main_atrritbutes, results)
+    main_attributes = get_main_attribute(results, @name_main_attr)
+    top_ordered = get_top_of_results(main_attributes, results)
     final_top = build_final_top(@relevant_keys, top_ordered)
 
     @printable_data = final_top
@@ -48,8 +48,8 @@ class Top
   end
 
   def get_main_attribute(result, main_attribute)
-    data_main_atrritbutes = result.map { |item| item[main_attribute] }
-    parse_values_to_i(data_main_atrritbutes)
+    data_main_attributes = result.map { |item| item[main_attribute] }
+    parse_values_to_i(data_main_attributes)
   end
 
   def parse_values_to_i(arr_bidimensional)
@@ -58,14 +58,14 @@ class Top
     end
   end
 
-  def get_top_of_results(main_atrritbutes, result)
+  def get_top_of_results(main_attributes, result)
     top = []
 
     TOP_NUMBER.times {
-      index_maxi = main_atrritbutes.index(main_atrritbutes.max)
+      index_maxi = main_attributes.index(main_attributes.max)
       top << result[index_maxi]
       result.delete_at(index_maxi)
-      main_atrritbutes.delete_at(index_maxi)
+      main_attributes.delete_at(index_maxi)
     }
     top
   end
