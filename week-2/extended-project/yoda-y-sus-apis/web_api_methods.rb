@@ -1,5 +1,6 @@
 require "http"
 require "json"
+require "csv"
 
 def get_data(page)
     data_next = []
@@ -10,4 +11,10 @@ def get_data(page)
       data_next = get_data(page_number)
     end
     return data + data_next
+end
+
+def create_file(input, filename)
+  CSV.open(filename + ".csv",'wb') do |data|
+    data << input.values
+  end
 end
