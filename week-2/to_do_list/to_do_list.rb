@@ -7,7 +7,7 @@ def operation(user_input, task_list)
   if !!(user_input =~ /^t$/) 
     resp = task_list.list
     imprimir(resp)
-  elsif !!(user_input =~ /^t\s[^-]+/)
+  elsif !!(user_input =~ /^t\s[^-|\s]+/)
     user_input[0..1] = ""
     task_list.add(user_input)
   elsif !!(user_input =~ /^t\s-d\s\d+$/)
