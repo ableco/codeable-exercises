@@ -11,7 +11,7 @@ expensive_vehicles = Top.new("vehicles", "cost_in_credits", expensive_vehicles_a
 heaviest_people = Top.new("people", "mass", heaviest_people_attr)
 fastest_vehicles = Top.new("vehicles", "max_atmosphering_speed", fastest_vehicles_attr)
 most_populated_planets = Top.new("planets", "population", most_populated_planets_attr)
-tallest_people = Top.new("people", "mass", tallest_people_attr)
+tallest_people = Top.new("people", "height", tallest_people_attr)
 
 available_tops = [
   expensive_vehicles, fastest_vehicles, tallest_people, heaviest_people, most_populated_planets

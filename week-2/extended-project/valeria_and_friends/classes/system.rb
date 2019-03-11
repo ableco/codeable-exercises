@@ -8,7 +8,7 @@ class System
     "  1. Most expensive vehicles",
     "  2. Fastest vehicles",
     "  3. Tallest people",
-    "  4. Heavy ones",
+    "  4. Heaviest people",
     "  5. Most populated planets",
     "",
     "  6. Exit",
@@ -22,13 +22,13 @@ class System
 
   def run
     print_instructions
-    number_choised = get_number_choise
+    chosen_number = get_chosen_number
     system "clear"
-    top_choised = get_top_choise(number_choised, @tops)
-    generate_printable(top_choised)
-    print_top_choised(top_choised.printable_data)
+    chosen_top = get_top_choice(chosen_number, @tops)
+    generate_printable(chosen_top)
+    print_chosen_top(chosen_top.printable_data)
     want_csv = ask_csv?
-    create_csv(top_choised.name_main_attr, top_choised.printable_data) if want_csv
+    create_csv(chosen_top.name_main_attr, chosen_top.printable_data) if want_csv
     system "clear"
     run
   end
@@ -37,14 +37,14 @@ class System
     puts TEXT_INSTRUCTIONS
   end
 
-  def get_number_choise
+  def get_chosen_number
     numero_top = gets.to_i
     numero_top
   end
 
-  def get_top_choise(choise, tops)
-    index_tops = choise - 1
-    case choise
+  def get_top_choice(choice, tops)
+    index_tops = choice - 1
+    case choice
     when 1
       puts "MOST EXPENSIVE VEHICLES of Star Wars\n"
       return tops[index_tops]
@@ -64,15 +64,15 @@ class System
       puts "¡Bye bye! \n"
       exit
     else
-      puts "there is no top like that! \n"
+      puts "There is no top like that! \n"
     end
   end
 
-  def generate_printable(top_choised)
-    top_choised.give_me_the_top if top_choised.printable_data.length == 0
+  def generate_printable(chosen_top)
+    chosen_top.give_me_the_top if chosen_top.printable_data.length == 0
   end
 
-  def print_top_choised(arr_print)
+  def print_chosen_top(arr_print)
     c = arr_print.transpose
     d = c.map do |x|
       x.max_by(&:length).length
