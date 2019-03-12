@@ -4,7 +4,7 @@ content = File.read("./frases.txt")
     puts line
   end 
 
-  lines = File.readlines("frases.txt")
+  lines = File.readlines("frases.txt") # la variable lines , contiene un array
   lines.each do |line|
     puts line
   end
