@@ -7,12 +7,16 @@ RSpec.describe "Test to dog" do
 
     describe "Test Operation" do
 
-        it "Successful operation input" do
-            expect(operation("cat ",dog)).to eq("Hi")
-        end
+        # it "Successful operation input" do
+        #     expect(operation("cat ",dog)).to eq("Hi")
+        # end
 
         it "Wrong operation input" do
             expect(operation("ererer", dog)).to eq("Error: Unexpected input")
+        end
+
+        it "Add file" do
+            expect(operation("cat > hola.txt", dog)).to eq("add file")
         end
 
     end
