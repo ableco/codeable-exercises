@@ -1,4 +1,6 @@
-#Write a class that, when given a string, will return an uppercase string with each letter shifted forward in the alphabet by however many spots the cipher was initialized to.
+#Write a class that, when given a string, 
+#will return an uppercase string with each letter shifted 
+#forward in the alphabet by however many spots the cipher was initialized to.
 class CaesarCipher
     def initialize(shift)
       #your code here
@@ -46,10 +48,6 @@ class CaesarCipher
   puts c.encode("IT'S A SHIFT CIPHER!!").inspect
   puts c.decode("NY'X F XMNKY HNUMJW!!").inspect
   
-
-# array ="CODE".chars.map { |i|  i}
-
-# puts array.inspect
 
 
 
