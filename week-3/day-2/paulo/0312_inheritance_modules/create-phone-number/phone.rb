@@ -13,4 +13,5 @@ def createPhoneNumber(numbers)
     end
   end
   return result
+  # "(%d%d%d) %d%d%d-%d%d%d%d" % numbers
 end
