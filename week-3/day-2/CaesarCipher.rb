@@ -20,18 +20,18 @@ class CaesarCipher
   end
   
   def decode(string)
-    string = string.upcase
-    array = string.split("")
-    array.map! do |x|
-      if @alphabet.include?(x)
-        newpos = @alphabet.index(x) - @num
-        newpos += 26 if newpos < 0
-        @alphabet[newpos]
-      else
-        x
+      string = string.upcase
+      array = string.split("")
+      array.map! do |x|
+        if @alphabet.include?(x)
+          newpos = @alphabet.index(x) - @num
+          newpos += 26 if newpos < 0
+          @alphabet[newpos]
+        else
+          x
+        end
       end
-    end
-    array.join   
+      array.join   
   end
 end
 
