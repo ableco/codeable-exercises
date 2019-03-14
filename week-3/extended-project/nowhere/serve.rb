@@ -1,1 +1,2 @@
 puts 'Hi'
+puts 'Test'
