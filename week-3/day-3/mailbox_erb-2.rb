@@ -35,13 +35,16 @@ class Mailbox
 end
 
 class MailboxErbRenderer
-  def initialize(mailbox, file)
+  def initialize(mailbox, filename)
     @mailbox = mailbox
-    @file = file
+    @filename = filename
   end
 
   def render
     # imaginary save file
+    File.open(@filename, "w") do |file|
+      file.write(@mailbox)
+    end
   end
 end
 
@@ -50,7 +53,6 @@ emails = [
   Email.new("Keep on coding! :)", date: "2014-12-01", from: "Dajana"),
   Email.new("Re: Homework this week", date: "2014-12-02", from: "Ariane")
 ]
-mailbox = Mailbox.new("Ruby Study Group", emails)
 
 
 
@@ -90,6 +92,7 @@ template = "
   </body>
 </html>
 "
+mailbox = Mailbox.new("Ruby Study Group", emails)
 
 renderer = MailboxErbRenderer.new(mailbox, "mailbox.erb")
 html = renderer.render
