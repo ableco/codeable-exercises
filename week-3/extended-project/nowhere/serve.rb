@@ -21,11 +21,12 @@ loop do
   if PAGES.keys.include? path
     status = "200 OK"
     template = File.read('views/' + PAGES[path])
-    response_body = ERB.new(template).result(binding)
   else
     status = "404 Not Found"
-    response_body = PAGE_NOT_FOUND
+    template = File.read('views/' + PAGE_NOT_FOUND)
   end
+
+  response_body = ERB.new(template).result(binding)
 
   session.puts """
   HTTP/1.1 #{status}
