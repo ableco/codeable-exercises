@@ -1,4 +1,6 @@
 require 'socket'
+require "erb"
+require_relative 'routes.rb'
 
 server = TCPServer.new 3000
 
@@ -15,7 +17,8 @@ loop do
 
   if PAGES.keys.include? path
     status = "200 OK"
-    response_body = PAGES[path]
+    template = File.read('views/' + PAGES[path])
+    response_body = ERB.new(template).result(binding)
   else
     status = "404 Not Found"
     response_body = PAGE_NOT_FOUND
