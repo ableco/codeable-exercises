@@ -25,12 +25,6 @@ emails = [
 
 mailbox = Mailbox.new("Ruby Study Group", emails)
 
-# puts mailbox.group
-# puts mailbox.emails[0].subject
-# puts emails[0].subject
-# puts emails[0].date
-# puts emails[0].from
-
 template = "
 <html>
   <head>
