@@ -2,7 +2,10 @@ require 'socket'
 require "erb"
 require_relative 'routes.rb'
 
-server = TCPServer.new 3000
+port = 3000
+server = TCPServer.new port
+
+puts "Running server 🚀  in http://localhost:#{port}"
 
 loop do
   session = server.accept
@@ -24,11 +27,11 @@ loop do
     response_body = PAGE_NOT_FOUND
   end
 
-  session.puts <<-HEREDOC
+  session.puts """
   HTTP/1.1 #{status}
 
-#{response_body}
-  HEREDOC
+  #{response_body}
+  """
 
   session.close
 end
