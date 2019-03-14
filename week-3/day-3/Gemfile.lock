@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    palindrome (1.0.0)
+    prime (0.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  palindrome
+  prime
+
+BUNDLED WITH
+   2.0.1
