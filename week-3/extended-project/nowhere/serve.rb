@@ -2,14 +2,6 @@ require 'socket'
 
 server = TCPServer.new 3000
 
-PAGES = {
-  "/" => "Hi, welcome to the home page!",
-  "/about" => "About us: we are http hackers",
-  "/team" => "We haven't made much news yet with this server, but stay tuned"
-}
-
-PAGE_NOT_FOUND = "Hi.html"
-
 loop do
   session = server.accept
   request = []
