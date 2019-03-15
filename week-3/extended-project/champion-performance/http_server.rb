@@ -1,44 +1,33 @@
 require 'socket'
 require 'uri'
+require './controller/controller'
 
 WEB_ROOT = './public'
 
-@html_test = "
-<html>
-  <body>
-    <div style=text-align: center>
-      <h1>Hello World!</h1>
-      <img src=earth_heart.jpg />
-    </div>
-  </body>
-</html>
-"
-
-
-def requested_file(request_line, socket)  
+def requested_file(request_line, socket)
 
   request_uri  = request_line.split(" ")[1]
-  STDERR.puts "petition to : #{request_uri}" 
+  STDERR.puts "petition to : #{request_uri}"
 
   case request_uri
   when /^(\/)$/
 
-    STDERR.puts "first option"     
+    STDERR.puts "first option"
     response_from_path(WEB_ROOT, socket)
 
   when /^(\/\w+\.\w+)$/
 
-    STDERR.puts "second option" 
-    path   = URI.unescape(URI(request_uri).path)  
+    STDERR.puts "second option"
+    path   = URI.unescape(URI(request_uri).path)
 
     clean = []
     parts = path.split("/")
-  
+
     parts.each do |part|
       next if part.empty? || part == '.'
       part == '..' ? clean.pop : clean << part
-    end  
-  
+    end
+
     path = File.join(WEB_ROOT, *clean)
     response_from_path(path, socket)
 
@@ -48,12 +37,12 @@ def requested_file(request_line, socket)
     paramstring = request_uri.split('?')[1]
     name = paramstring.split('=')[1]
 
-    response_from_string(@html_test,socket)
+    response_from_string(controller(name), socket)
 
   else
       print "something else"
-  end  
-  
+  end
+
 end
 
 def response_from_string(file, socket)
