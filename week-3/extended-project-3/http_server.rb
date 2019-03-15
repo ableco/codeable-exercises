@@ -5,16 +5,17 @@ require "socket"
 #*********************************************************************************
 data = [
   {
-    :member => "diegoc"
-    :name => "Diego Cuevas",
-    :answer1 => "a1",
-    :answer2 => "a2",
-    :answer3 => "a3",
-    :answer4 => "a4",
-    :answer5 => "a5",
+    :member => "diegot",
+    :name => "Diego Torres",
+    :answer1 => "I'm very practical.",
+    :answer2 => "Unconsidered people.",
+    :answer3 => "Be honest and shows a genuine interest in helping others.",
+    :answer4 => "Although my intentions are good, sometimes I can be very cold and direct.",
+    :answer5 => "Show me the logic and the facts that support it.",
+    :answer6 => "And honest face to face conversation."
   },  
   {
-    :member => "angie"
+    :member => "angie",
     :name => "Angie Gonzales",
     :answer1 => "I can spend too much time staring the moon",
     :answer2 => "News about sexual harassment towards children",
@@ -24,18 +25,18 @@ data = [
     :answer6 => "In private,and face-to-face."
   },  
   { 
-    :member => "marieth"  
+    :member => "marieth",
     :name => "Marieth Perez",
-    :answer1 => "a1",
-    :answer2 => "a2",
-    :answer3 => "a3",
-    :answer4 => "a4",
-    :answer5 => "a5",
-    :answer6 => "a6"
+    :answer1 => "I like sleeping, my family members say that I always sleep happy, smiling.",
+    :answer2 => "I don't like heights, for example being on a very high bridge. I don't like that people don't stay true to their word.",
+    :answer3 => "When people help poor children on the street.",
+    :answer4 => "That I am bothered by something when in reality I am not.",
+    :answer5 => "When people tell me the exact purpose of what they want me to do",
+    :answer6 => "I would like feedbacks to be in a constructive way."
   },  
   { 
-    :member => "diegot"
-    :name => "Diego Torres",
+    :member => "diegoc",
+    :name => "Diego Cuevas",
     :answer1 => " I'm immature.",
     :answer2 => "A person who talks as if they knew absolutely everything.",
     :answer3 => "They gotta be funny.",
@@ -44,7 +45,7 @@ data = [
     :answer6 => "Face-to-face. As straightforward as possible.",
   },  
   {
-    :member => "valeria"  
+    :member => "valeria",
     :name => "Valeria Vassallo",
     :answer1 => "I worry too much. I really pay attention to the details, so be careful!",
     :answer2 => "When people make some noises that bother me (e.g. screeching)",
@@ -74,7 +75,12 @@ while session = server.accept
     data.each do |hash|
       if hash[:member] == member
         name = hash[:name]
-        r1 = hash[:r1]
+        answer1 = hash[:answer1]
+        answer2 = hash[:answer2]
+        answer3 = hash[:answer3]
+        answer4 = hash[:answer4]
+        answer5 = hash[:answer5]
+        answer6 = hash[:answer6]
         html = ERB.new(File.read("userguide.erb")).result(binding)
         break
       else
