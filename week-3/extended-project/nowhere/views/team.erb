@@ -25,88 +25,39 @@
      />
 </head>
 <body>
+<div class="main-banner" id="home">
+      <!-- header -->
+      <header class="header">
+        <div class="container-fluid px-lg-5">
+          <!-- nav -->
+          <nav class="py-4">
+            <div id="logo">
+              <h1><a href="/">Nowhere</a></h1>
+            </div>
+
+            <label for="drop" class="toggle">Menu</label>
+            <input type="checkbox" id="drop" />
+            <ul class="menu mt-2">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/team">Team</a></li>
+            </ul>
+          </nav>
+          <!-- //nav -->
+        </div>
+      </header>
+      <!-- //header -->
+      <!--/banner-->
+      
+      <!--// banner-inner -->
+    </div>
     <div class="row">
-        <div class="col-md-4 p-0 pt-5 team-left text-center">
-          <img src="images/c1.jpg" class="img-fluid mb-5" alt="" />
-          <h4>Roman Reigns</h4>
-          <p>
-            Morbi non elit sed neque init rhoncus maximus ac enim elit sed
-            neque init.
-          </p>
-          <div class="team-social py-4 text-center">
-            <ul class="social-icons text-center">
-              <li>
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="mx-3">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-google-plus"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+        <% TEAM.each do |key,member| %>
+        <div class="col-md-3 p-0 pt-5 team-left text-center">
+          <img src=<%= member[:image] %> class="img-fluid mb-5" alt="" />
+          <h4><%= member[:name] %></h4>
         </div>
-        <div class="col-md-4 p-0 pt-md-0 pt-5 team-middle text-center">
-          <img src="images/c2.jpg" class="img-fluid mb-5" alt="" />
-          <h4>Johncena</h4>
-          <p>
-            Morbi non elit sed neque init rhoncus maximus ac enim elit sed
-            neque init.
-          </p>
-          <div class="team-social py-4 text-center">
-            <ul class="social-icons text-center">
-              <li>
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="mx-3">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-google-plus"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4 p-0 pt-5 team-right text-center">
-          <img src="images/c3.jpg" class="img-fluid mb-5" alt="" />
-          <h4>Dolph Ziggler</h4>
-          <p>
-            Morbi non elit sed neque init rhoncus maximus ac enim elit sed
-            neque init.
-          </p>
-          <div class="team-social py-4 text-center">
-            <ul class="social-icons text-center">
-              <li>
-                <a href="#">
-                  <i class="fa fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="mx-3">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-google-plus"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
