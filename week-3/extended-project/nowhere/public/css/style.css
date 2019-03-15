@@ -156,10 +156,6 @@ nav ul li {
   padding: 10px 0;
   color: #fff;
   text-transform: uppercase;
-  -webkit-transition: 0.5s all ease;
-  -moz-transition: 0.5s all ease;
-  -o-transition: 0.5s all ease;
-  -ms-transition: 0.5s all ease;
 }
 
 .menu li ul li a {
@@ -403,13 +399,14 @@ li > a:only-child:after {
 
 .main-banner {
   background: url('https://i.imgur.com/ZgvZalA.jpg') no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -ms-background-size: cover;
   background-size: cover;
   position: relative;
   min-height: 50em;
+  min-height: 50em;
+  width: 100%;
+  height: 100vh;
+  background-color: #031b21;
+  background-blend-mode: overlay;
 }
 
 .main-banner.inner {
@@ -1067,10 +1064,6 @@ button.btn1 {
   text-decoration: none;
   background: none;
   cursor: pointer;
-  -webkit-transition: 0.5s all;
-  -moz-transition: 0.5s all;
-  -o-transition: 0.5s all;
-  -ms-transition: 0.5s all;
   transition: 0.5s all;
   float: right;
   width: 15%;
@@ -1220,8 +1213,9 @@ a.move-top span {
   }
 
   .banner-info {
-    padding: 15em 0 0em 3em;
-    width: 32%;
+    width: 40%;
+    margin: auto;
+    text-align: center;
   }
 }
 
