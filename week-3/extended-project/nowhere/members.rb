@@ -44,3 +44,12 @@ team = {
     :feedback => "In any way as long as they are honest",
     }
 }
+:frank => {
+  :name => "Frank Condezo",
+  :honest => "I like anime",
+  :nuts => "That they do not take responsibility for their actions",
+  :gold_star => "They have to be authentic/genuine",
+  :misunderstand => "My mental age",
+  :convince => "With good mangostinos",
+  :feedback => "Honestly",
+}
