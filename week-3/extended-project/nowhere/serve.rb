@@ -1,6 +1,7 @@
 require 'socket'
 require "erb"
 require_relative 'routes.rb'
+require_relative 'members.rb'
 
 port = 3000
 server = TCPServer.new port
