@@ -5,19 +5,21 @@ require './controller/controller'
 WEB_ROOT = './public'
 
 def requested_file(request_line, socket)
-
+  #Obtenemos la direccion en consulta
   request_uri  = request_line.split(" ")[1]
-  STDERR.puts "petition to : #{request_uri}"
+  #Mostramos en consola la direccion en consulta
+  puts "petition to : #{request_uri}"
 
+  #Validamos
   case request_uri
   when /^(\/)$/
 
-    STDERR.puts "first option"
+    puts "first option"
     response_from_path(WEB_ROOT, socket)
 
   when /^(\/\w+\.\w+)$/
 
-    STDERR.puts "second option"
+    puts "second option"
     path   = URI.unescape(URI(request_uri).path)
 
     clean = []
@@ -32,7 +34,7 @@ def requested_file(request_line, socket)
     response_from_path(path, socket)
 
   when /^(\/\?name=\w+)$/
-    STDERR.puts "third option"
+    puts "third option"
 
     paramstring = request_uri.split('?')[1]
     name = paramstring.split('=')[1]
@@ -58,21 +60,23 @@ def response_from_string(file, socket)
   #IO.copy_stream(file, socket)
 end
 
+def response_path_exist(file,socket)
+  socket.print "HTTP/1.1 200 OK\r\n" +
+                       "Content-Type: text/html\r\n" +
+                       "Content-Length: #{file.size}\r\n" +
+                       "Connection: close\r\n"
+  socket.print "\r\n" 
+end
+
 
 def response_from_path(path, socket)
   path = File.join(path, 'index.html') if File.directory?(path)
 
   if File.exist?(path) && !File.directory?(path)
     File.open(path, "rb") do |file|
-      socket.print "HTTP/1.1 200 OK\r\n" +
-                   "Content-Type: text/html\r\n" +
-                   "Content-Length: #{file.size}\r\n" +
-                   "Connection: close\r\n"
-
-      socket.print "\r\n"
-
+      response_path_exist(file,socket)
       IO.copy_stream(file, socket)
-    end
+      end
   else
     message = "File not found\n"
 
@@ -87,15 +91,13 @@ def response_from_path(path, socket)
   end
 end
 
-server = TCPServer.new('localhost', 2345)
 
+server = TCPServer.new('localhost', 2345)
 loop do
   socket = server.accept
   request_line = socket.gets
-
-  STDERR.puts request_line
-
+  puts request_line
   requested_file(request_line, socket)
-
   socket.close
 end
+
