@@ -35,12 +35,12 @@ team = {
     :feedback => ,
     },
   :cristian => {
-    :name => ,
-    :honest => ,
-    :nuts => ,
-    :gold_star => ,
-    :misunderstand => ,
-    :convince => ,
-    :feedback => ,
+    :name => "Cristian",
+    :honest => "I'm good listener",
+    :nuts => "Excessive noise or absolute silence",
+    :gold_star => "If you like games",
+    :misunderstand => "I can look angry when I'm not",
+    :convince => "With good food",
+    :feedback => "In any way as long as they are honest",
     }
 }
