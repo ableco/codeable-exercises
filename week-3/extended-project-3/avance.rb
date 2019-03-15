@@ -2,16 +2,18 @@ require "erb"
 
  team = [
   {
+    name_id: "diegoc",
     name: "Diego Cuevas",
     answer1: " I'm immature.",
     answer2: "A person who talks as if they knew absolutely everything.",
     answer3: "They gotta be funny.",
     answer4: "People think that I'm careless, but l actually do care.",
     answer5: "Tell me it's good for me and there are no risks.",
-    answer6:"Face-to-face. As straightforward as possible.",
+    answer6:"Face-to-face. As straightforward as possible."
     
   },
   {  
+    name_id: "angie",
     name: "Angie Gonzales",
     answer1: "I can spend too much time staring the moon",
     answer2: "News about sexual harassment towards children",
@@ -20,7 +22,8 @@ require "erb"
     answer5: "Showing me facts and making this information connect with me in an emotional way",
     answer6:"In private,and face-to-face."
   },
-  { name: "Marieth Perez",
+  { name_id: "marieth",
+    name: "Marieth Perez",
     answer1: "I like sleeping, my family members say that I always sleep happy, smiling.",
     answer2: "I don't like heights, for example being on a very high bridge. I don't like that people don't stay true to their word.",
     answer3: "When people help poor children on the street.",
@@ -28,21 +31,23 @@ require "erb"
     answer5: "When people tell me the exact purpose of what they want me to do",
     answer6: "I would like feedbacks to be in a constructive way." 
   },
-  { name: "Diego Torres",
+  { name_id: "diegot",
+    name: "Diego Torres",
     answer1: "a1",
     answer2: "a2",
     answer3: "a3",
     answer4: "a4",
-    answer5: "a5",
+    answer5: "a5"
   },
   {
+    name_id: "valeria",
     name: "Valeria Vassallo",
     answer1: "I worry too much. I really pay attention to the details, so be careful!",
     answer2: "When people make some noises that bother me (e.g. screeching)",
     answer3: "Be honest. Be friendly. Don't be selfish nor arrogant.",
     answer4: "I swear I'm not mad at you! My personality and my face are just like that!",
     answer5: "Give me facts",
-    answer6:"Definitely not face to face. I mean... I can deal with it, yes, but I still feel kind of uncomfortable. I'll get better at it, I promise!",
+    answer6:"Definitely not face to face. I mean... I can deal with it, yes, but I still feel kind of uncomfortable. I'll get better at it, I promise!"
   }
 ]
 template = "
@@ -62,9 +67,9 @@ template = "
         </tr>
       </thead>
       <tbody>
-      <%  a=team.select { |member| member[:name]== 'Marieth Perez'} %>
+      <%  a=team.select { |member| member[:name_id]== 'diegoc'} %>
+        <h1>About <%= a[0][:name] %> :</h1>
        <tr>
-         <th><%= a[0][:name] %></th>
          <th><%= a[0][:answer1] %></th>
          <th><%= a[0][:answer2] %></th>
          <th><%= a[0][:answer3] %></th>
@@ -78,11 +83,7 @@ template = "
 </html>
 "
 
-<li><a href="/?member=diegoc">Diego Cuevas</a></li>
-<li><a href="/?member=angie">Angie Gonzales</a></li>
-<li><a href="/?member=marieth">Marieth Pérez</a></li>
-<li><a href="/?member=diegot">Diego Torres</a></li>
-<li><a href="/?member=valeria">Valeria Vassallo</a></li>
+name_id_enviada='diegoc'
 
 html = ERB.new(template).result(binding)
 
