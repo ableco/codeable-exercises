@@ -1,62 +1,6 @@
 require "erb"
 require "socket"
 
-#HTML Templates
-#*********************************************************************************
-home = '
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <title>WELCOME!!</title>
-          </head>
-          <body>
-            <h1>Welcome to the Codeable website!</h1>
-            <h2>This is our team:</h2>
-            <ul>
-              <li><a href="/?member=diegoc">Diego Cuevas</a></li>
-              <li><a href="/?member=angie">Angie Gonzales</a></li>
-              <li><a href="/?member=marieth">Marieth Pérez</a></li>
-              <li><a href="/?member=diegot">Diego Torres</a></li>
-              <li><a href="/?member=valeria">Valeria Vassallo</a></li>
-            </ul>
-          </body>
-        </html>
-        '
-userguide = '
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <title>INFO</title>
-          </head>
-          <body>
-            <h1>Mi nombre es <%= name %></h1>
-            <h2>Pregunta 1:</h2>
-            <p><%= r1 %></p>
-          </body>
-        </html>
-        '
-user_error = '
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <title>INFO</title>
-          </head>
-          <body>
-            <h1>Nombre no encontrado</h1>
-          </body>
-        </html>
-        '
-path_error = '
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <title>INFO</title>
-          </head>
-          <body>
-            <h1>Ruta no encontrada</h1>
-          </body>
-        </html>
-        '
 #USER DATA
 #*********************************************************************************
 data = [{:member => "diegoc", :name => "Diego Cuevas", :r1 => "Hola"},
@@ -75,26 +19,26 @@ while session = server.accept
   html=""
 
   if path == "/"
-    html = ERB.new(home).result(binding)
+    html = ERB.new(File.read("home.erb")).result(binding)
   elsif path.match(/\/\?member\=/)
     member = path.split("=")[1]
     data.each do |hash|
       if hash[:member] == member
         name = hash[:name]
         r1 = hash[:r1]
-        html = ERB.new(userguide).result(binding)
+        html = ERB.new(File.read("userguide.erb")).result(binding)
         break
       else
-        html = ERB.new(user_error).result(binding)
+        html = ERB.new(File.read("user_error.erb")).result(binding)
       end
     end
   else
-    html = ERB.new(path_error).result(binding)
+    html = ERB.new(File.read("path_error.erb")).result(binding)
   end
 
-  session.print "HTTP/1.1 200\r\n" # 1
-  session.print "Content-Type: text/html\r\n" # 2
-  session.print "\r\n" # 3
+  session.print "HTTP/1.1 200\n" # 1
+  session.print "Content-Type: text/html\n" # 2
+  session.print "\n" # 3
   session.print html
   session.close
 end
