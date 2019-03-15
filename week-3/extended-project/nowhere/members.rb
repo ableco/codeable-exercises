@@ -16,7 +16,8 @@ TEAM = {
     :misunderstand => "Some people feel that I can be cold because I see things transparently",
     :convince => "Working with capable people like codeable.pe always motives me",
     :feedback => "Any constructive comment I like",
-    },
+    :key => 'lian'
+  },
   :deyvi => {
     :name => "Deyvi Conde",
     :image => "https://scontent.flim19-1.fna.fbcdn.net/v/t1.0-9/53524149_1176409392536075_6453008463239839744_n.jpg?_nc_cat=107&_nc_ht=scontent.flim19-1.fna&oh=480eaab0d5905680efe667e976f24962&oe=5D26574E",
@@ -26,7 +27,8 @@ TEAM = {
     :misunderstand => "I'm extremely ambitious",
     :convince => "In a funny way. With food(x2)",
     :feedback => "Kindly",
-    },
+    :key => 'deyvi'
+  },
   :frank => {
     :name => "Frank Condezo",
     :image => "https://camo.githubusercontent.com/0f254c6682d9b7eb7b29b580ae64dd91b99a8a47/68747470733a2f2f64726976652e676f6f676c652e636f6d2f75633f6578706f72743d766965772669643d314754353635346f645f4a38437a54415757646b334d6d5a7a726e4d6b67684a48",
@@ -36,7 +38,8 @@ TEAM = {
     :misunderstand => "My mental age",
     :convince => "With good mangostinos",
     :feedback => "Honestly",
-    },
+    :key => 'frank'
+  },
   :cristian => {
     :name => "Cristian Granda",
     :image => "https://i.imgur.com/DB7qL9T.jpg",
@@ -46,5 +49,6 @@ TEAM = {
     :misunderstand => "I can look angry when I'm not",
     :convince => "With good food",
     :feedback => "In any way as long as they are honest",
-    }
+    :key => 'cristian'
+  }
 }

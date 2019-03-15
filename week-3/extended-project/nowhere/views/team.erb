@@ -53,7 +53,7 @@
       <div class="row">
         <% TEAM.each do |key,member| %>
         <div class="col-md-3 pt-5 team-left text-center">
-          <a href="#" class="box-image">
+          <a href=<%= "/team?member=#{member[:key]}" %> class="box-image">
             <img src=<%= member[:image] %> class="img-fluid mb-5" alt="" />
           </a>
           <h4><%= member[:name] %></h4>

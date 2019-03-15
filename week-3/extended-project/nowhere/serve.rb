@@ -26,6 +26,14 @@ loop do
 
   if PAGES.keys.include? path
     template = File.read('views/' + PAGES[path])
+  elsif path.include? 'member'
+    member = path.split("=")[1]
+    if TEAM.key?(member.to_sym)
+      template = File.read('views/member.erb')
+    else
+      status = "404 Not Found"
+      template = File.read('views/' + PAGE_NOT_FOUND)
+    end
   elsif path.match(/.css/)
     template = File.read('public' + path)
     content = 'text/css'
