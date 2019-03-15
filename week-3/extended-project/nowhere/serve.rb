@@ -14,13 +14,23 @@ loop do
     request << line.chomp
   end
 
-  puts "finished reading"
+  puts request[0]
 
   http_method, path, protocol = request[0].split(' ')
 
+  puts path
+
+  content = 'text/html'
+  status = "200 OK"
+
   if PAGES.keys.include? path
-    status = "200 OK"
     template = File.read('views/' + PAGES[path])
+  elsif path.match(/.css/)
+    template = File.read('public' + path)
+    content = 'text/css'
+  elsif path.match(/.js/)
+    template = File.read('public' + path)
+    content = 'text/js'
   else
     status = "404 Not Found"
     template = File.read('views/' + PAGE_NOT_FOUND)
@@ -30,6 +40,7 @@ loop do
 
   session.puts """
   HTTP/1.1 #{status}
+  Content-Type: #{content}
 
   #{response_body}
   """
