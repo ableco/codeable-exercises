@@ -1,8 +1,6 @@
 require "json"
 require "erb"
 
-title = "patricia"
-
 def controller(person)
   # get json data
   data = File.open("./model/team_members.json")
@@ -22,5 +20,3 @@ def controller(person)
   # get html
   html = ERB.new(template).result(binding)
 end
-
-controller("paul")
