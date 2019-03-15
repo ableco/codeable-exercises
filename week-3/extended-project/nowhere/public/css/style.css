@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-size: 100%;
   background: #fff;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -32,17 +32,17 @@ a:hover {
   text-decoration: none;
 }
 
-input[type="button"],
-input[type="submit"],
-input[type="text"],
-input[type="email"],
-input[type="search"] {
+input[type='button'],
+input[type='submit'],
+input[type='text'],
+input[type='email'],
+input[type='search'] {
   transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
   -ms-transition: 0.5s all;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 h1,
@@ -54,7 +54,7 @@ h6 {
   margin: 0;
   letter-spacing: 1px;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 p {
@@ -95,7 +95,7 @@ header {
 }
 
 .toggle,
-[id^="drop"] {
+[id^='drop'] {
   display: none;
 }
 
@@ -121,7 +121,7 @@ nav {
  * we need to add a clear after the container. */
 
 nav:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -230,7 +230,7 @@ nav ul ul ul li {
 /* Change ' +' in order to change the Dropdown symbol */
 
 li > a:only-child:after {
-  content: "";
+  content: '';
 }
 
 /* Media Queries
@@ -293,7 +293,7 @@ li > a:only-child:after {
   }
 
   /* Display Dropdown when clicked on Parent Lable */
-  [id^="drop"]:checked + ul {
+  [id^='drop']:checked + ul {
     display: block;
     background: rgba(25, 25, 25, 0.85);
     padding: 15px 0;
@@ -402,7 +402,7 @@ li > a:only-child:after {
 /*--/banner --*/
 
 .main-banner {
-  background: url(../images/banner.jpg) no-repeat center;
+  background: url('https://i.imgur.com/ZgvZalA.jpg') no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -863,8 +863,8 @@ span.decription {
   color: #4c6ef5;
 }
 
-.contact-main-info input[type="text"],
-.contact-main-info input[type="email"] {
+.contact-main-info input[type='text'],
+.contact-main-info input[type='email'] {
   width: 100%;
   color: #999;
   background: none;
@@ -1042,7 +1042,7 @@ input.email {
   border: 1px solid #333333;
 }
 
-.footer-text input[type="email"] {
+.footer-text input[type='email'] {
   outline: none;
   padding: 12px 15px;
   color: #fff;
@@ -1449,13 +1449,13 @@ a.move-top span {
     font-size: 0.85em;
   }
 
-  .newsletter-info input[type="email"] {
+  .newsletter-info input[type='email'] {
     padding: 1em 1em;
     font-size: 15px;
     letter-spacing: 1px;
   }
 
-  .newsletter-info input[type="submit"] {
+  .newsletter-info input[type='submit'] {
     font-size: 14px;
   }
 

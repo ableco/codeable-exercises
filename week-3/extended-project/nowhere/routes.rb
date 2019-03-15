@@ -4,4 +4,4 @@ PAGES = {
   "/team" => "team.erb"
 }
 
-PAGE_NOT_FOUND = "hi.html"
+PAGE_NOT_FOUND = "hi.erb"
