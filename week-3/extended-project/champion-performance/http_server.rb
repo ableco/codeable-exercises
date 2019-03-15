@@ -9,13 +9,13 @@ def requested_file(request_line, socket)
   request_uri  = request_line.split(" ")[1]
   #Mostramos en consola la direccion en consulta
   puts "petition to : #{request_uri}"
-
+  content = "text/html"
   #Validamos
   case request_uri
   when /^(\/)$/
 
     puts "first option"
-    response_from_path(WEB_ROOT, socket)
+    response_from_path(WEB_ROOT, socket, content)
 
   when /^(\/\w+\.\w+)$/
 
@@ -31,7 +31,9 @@ def requested_file(request_line, socket)
     end
 
     path = File.join(WEB_ROOT, *clean)
-    response_from_path(path, socket)
+    puts "path"
+    puts path
+    response_from_path(path, socket, content)
 
   when /^(\/\?name=\w+)$/
     puts "third option"
@@ -40,7 +42,10 @@ def requested_file(request_line, socket)
     name = paramstring.split('=')[1]
 
     response_from_string(controller(name), socket)
-
+  when /.css$/
+    puts "cssss"
+    content = "text/css"
+    response_from_path("./assets/css/band.css", socket, content)
   else
       print "something else"
   end
@@ -65,11 +70,11 @@ def response_path_exist(file,socket)
                        "Content-Type: text/html\r\n" +
                        "Content-Length: #{file.size}\r\n" +
                        "Connection: close\r\n"
-  socket.print "\r\n" 
+  socket.print "\r\n"
 end
 
 
-def response_from_path(path, socket)
+def response_from_path(path, socket, type_content)
   path = File.join(path, 'index.html') if File.directory?(path)
 
   if File.exist?(path) && !File.directory?(path)
@@ -81,7 +86,7 @@ def response_from_path(path, socket)
     message = "File not found\n"
 
     socket.print "HTTP/1.1 404 Not Found\r\n" +
-                 "Content-Type: text/plain\r\n" +
+                 "Content-Type: #{type_content}\r\n" +
                  "Content-Length: #{message.size}\r\n" +
                  "Connection: close\r\n"
 
