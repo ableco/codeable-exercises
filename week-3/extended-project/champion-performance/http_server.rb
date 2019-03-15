@@ -1,8 +1,17 @@
 require 'socket'
 require 'uri'
 require './controller/controller'
+# require './assets/css/style'
 
 WEB_ROOT = './public'
+
+# CONTENT_TYPE_MAPPING = {
+#   'html' => 'text/html',
+#   'txt' => 'text/plain',
+#   'png' => 'image/png',
+#   'jpg' => 'image/jpeg',
+#   'css' => 'text/css'
+# }
 
 def requested_file(request_line, socket)
   #Obtenemos la direccion en consulta
