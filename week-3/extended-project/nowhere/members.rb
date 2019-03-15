@@ -8,13 +8,13 @@
 
 team = {
   :lian => {
-    :name => ,
-    :honest => ,
-    :nuts => ,
-    :gold_star => ,
-    :misunderstand => ,
-    :convince => ,
-    :feedback => ,
+    :name => "Lian Richelle Nivin Suarez",
+    :honest => "I try whenever I can speak directly and honestly, even if that can make someone uncomfortable",
+    :nuts => "If someone is very disrespectful, that makes me crazy",
+    :gold_star => "I always maintain relationships with people that I feel are very sincere",
+    :misunderstand => "Some people feel that I can be cold because I see things transparently",
+    :convince => "Working with capable people like codeable.pe always motives me",
+    :feedback => "Any constructive comment I like",
     },
   :deyvi => {
     :name => "Deyvi",
@@ -43,13 +43,4 @@ team = {
     :convince => "With good food",
     :feedback => "In any way as long as they are honest",
     }
-}
-:frank => {
-  :name => "Frank Condezo",
-  :honest => "I like anime",
-  :nuts => "That they do not take responsibility for their actions",
-  :gold_star => "They have to be authentic/genuine",
-  :misunderstand => "My mental age",
-  :convince => "With good mangostinos",
-  :feedback => "Honestly",
 }
