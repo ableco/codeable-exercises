@@ -1,6 +1,7 @@
 require "erb"
 require "socket"
 
+
 #USER DATA
 #*********************************************************************************
 data = [
@@ -58,7 +59,7 @@ data = [
 
 #SERVER
 #*********************************************************************************
-server = TCPServer.new 5678
+server = TCPServer.new 3000
 while session = server.accept
   request = []
   while (line = session.gets) && (line.chomp.length > 0)
@@ -70,21 +71,24 @@ while session = server.accept
 
   if path == "/"
     html = ERB.new(File.read("home.erb")).result(binding)
+  elsif path.match(/\/[^\?]\w+/)
+      if File.exist?("public" + path + ".html")
+      html = File.read("public" + path + ".html")
+      else
+        html = ERB.new(File.read("respaldo.erb")).result(binding) 
+      end
+
   elsif path.match(/\/\?member\=/)
     member = path.split("=")[1]
     data.each do |hash|
       if hash[:member] == member
         name = hash[:name]
-<<<<<<< HEAD
-        r1 = hash[:r1]
-=======
         answer1 = hash[:answer1]
         answer2 = hash[:answer2]
         answer3 = hash[:answer3]
         answer4 = hash[:answer4]
         answer5 = hash[:answer5]
         answer6 = hash[:answer6]
->>>>>>> 9a39b0ab473e1ea01f8a55f47d977e0a2df85edc
         html = ERB.new(File.read("userguide.erb")).result(binding)
         break
       else
@@ -92,9 +96,8 @@ while session = server.accept
       end
     end
   else
-    html = ERB.new(File.read("path_error.erb")).result(binding)
+    html = ERB.new(File.read("respaldo.erb")).result(binding)
   end
-
   session.print "HTTP/1.1 200\n" # 1
   session.print "Content-Type: text/html\n" # 2
   session.print "\n" # 3
