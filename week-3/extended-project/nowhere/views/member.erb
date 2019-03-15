@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>NoWhere | Member Frank Condezo</title>
+    <title>NoWhere | Member <%= TEAM[member.to_sym][:name] %></title>
     <link
       rel="icon"
       type="image/png"
@@ -42,8 +42,8 @@
           <input type="checkbox" id="drop" />
           <ul class="menu mt-2">
             <li><a href="/">Home</a></li>
-            <li class="active"><a href="/about">About</a></li>
-            <li><a href="/team">Team</a></li>
+            <li><a href="/about">About</a></li>
+            <li class="active"><a href="/team">Team</a></li>
           </ul>
         </nav>
         <!-- //nav -->
@@ -56,29 +56,51 @@
             <div class="col-lg-6 banner-image">
               <div class="effect-w3">
                 <img
-                  src="https://files.slack.com/files-pri/TEH2PTB37-FGX618TFA/img_20190314_180623.jpg"
+                  src=<%= TEAM[member.to_sym][:image] %>
                   alt=""
-                  \
-                  class="img-fluid image1"
+                  class="img_team_member"
                 />
               </div>
             </div>
             <div class="col-lg-6 last-img pl-lg-5 p-3">
               <h3 class="tittle mb-4">
-                My name
+                <%= TEAM[member.to_sym][:name] %>
               </h3>
-              <p class="mb-4">
-                Welcome to Nowhere project! We are part of a development project
-                and this webpage is the result.
+              <p class="mb-0">
+                What are some honest, unfiltered things about you?
               </p>
-              <p class="mb-4">
-                Codeable is a Full stack web development program located in
-                Lima, Peru. In Codeable we build awesome stuff using Ruby, React
-                and more. Codeable represents for us the best option for
-                learning code and an excellent way to connect with awesome
-                people and build your professional future. If you love solving
-                problems and you want to become a professional software
-                engineer, we invite you to apply to the next Codeable cycle.
+              <p class="mb-0">
+                <%= TEAM[member.to_sym][:honest] %>
+              </p>
+              <p class="mb-0">
+                What drives you nuts?
+              </p>
+              <p class="mb-0">
+                <%= TEAM[member.to_sym][:nuts] %>
+              </p>
+               <p class="mb-0">
+                How can people earn an extra gold star with you?
+              </p>
+              <p class="mb-0">
+                <%= TEAM[member.to_sym][:gold_star] %>
+              </p>
+              <p class="mb-0">
+                What are some things that people might misunderstand about you that you should clarify?
+              </p>
+              <p class="mb-0">
+                <%= TEAM[member.to_sym][:misunderstand] %>
+              </p>
+              <p class="mb-0">
+                What's the best way to convince you to do something?
+              </p>
+              <p class="mb-0">
+                <%= TEAM[member.to_sym][:convince] %>
+              </p>
+              <p class="mb-0">
+                How do you like to get feedback?
+              </p>
+              <p class="mb-0">
+                <%= TEAM[member.to_sym][:feedback] %>
               </p>
             </div>
           </div>
