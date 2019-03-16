@@ -2,9 +2,8 @@
 
 ### Use instructions
 
-```bash
-instructions to up the aplication
-```
+1. Execute ruby http_server.rb
+2. In your browser go to http://localhost:2345/
 
 ### Team members
 
@@ -16,7 +15,8 @@ instructions to up the aplication
 
 ### Pending
 
-- Get server.
-- Rendering a erb.
-- Create 2 templates.
-- Ruby consume erb.
+- ~~Get server.~~
+- ~~Rendering a erb.~~
+- ~~Create 2 templates.~~
+- ~~Ruby consume erb.~~
+- Tests
