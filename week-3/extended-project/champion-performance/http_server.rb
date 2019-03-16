@@ -42,10 +42,10 @@ def requested_file(request_line, socket)
     name = paramstring.split('=')[1]
 
     response_from_string(controller(name), socket)
-  when /.css$/
-    puts "cssss"
-    content = "text/css"
-    response_from_path("./assets/css/band.css", socket, content)
+  # when /.css$/
+  #   puts "cssss"
+  #   content = "text/css"
+  #   response_from_path("./assets/css/band.css", socket, content)
   else
       print "something else"
   end

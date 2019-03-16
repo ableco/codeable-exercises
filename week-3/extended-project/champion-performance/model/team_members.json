@@ -1,12 +1,32 @@
 {
   "paul": {
-    "name": "Paul",
+    "name": "Paul Portillo",
+    "photo": "https://avatars3.githubusercontent.com/u/5809281?s=400&u=fb6ec2c13e7df3d919f40cf46c14b9360de6cd66&v=4",
     "team": "Champion Performance",
-    "introduction": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus illum consequuntur accusantium, facilis exercitationem tenetur ad culpa ex expedita explicabo iure odit ducimus maxime magnam adipisci numquam rem modi consequatur, natus dolor."
+    "introduction": "Hi i'm Ricardo, I like to drink coffee at the afternoon because i'm very sleepy after lunch, I love team work because we can do big things together, but sometimes I like to focus on my work, I enter the zone!, an the signal of that is that i put my headphone on, so on those times please let me focus. I like feedback, but i like it more when there is a reasoning behind it."
   },
   "paulo": {
-    "name": "Paulo",
+    "name": "Paulo Tijero",
+    "photo": "https://avatars2.githubusercontent.com/u/28131369?s=400&v=4",
     "team": "Champion Performance",
-    "introduction": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus illum consequuntur accusantium."
+    "introduction": "Hi i'm Ricardo, I like to drink coffee at the afternoon because i'm very sleepy after lunch, I love team work because we can do big things together, but sometimes I like to focus on my work, I enter the zone!, an the signal  of that is that i put my headphone on, so on those times please let me focus. I like feedback, but i like it more when there is a reasoning behind it."
+  },
+  "cesar": {
+    "name": "Cesar Cachay",
+    "photo": "https://ca.slack-edge.com/TEH2PTB37-UGEG9DARJ-d2eb952c1755-512",
+    "team": "Champion Performance",
+    "introduction": "I’m a really direct person, who really want to work in group. I usually want to start projects or with in TEAM, not just group because I enjoy to have different points of view to improve my current knowledge. I lose my mind when people lies o feel superior than others, but actually, I can deal with it. Being friendly, having innovative ideas and being interested to continue learning. I think sometimes I can treat the people with a lot of confidence and sometimes for some people it isn’t acceptable and first I must have a good friend relationship and sometimes I use to make jokes but I can be pretty serious when is needed. Giving examples and good arguments because I usually try to manage my time or being a good friend. I prefer to have a complete honest feedback If you think I’m not doing well or having a proper performance I would like to know it to be a better friend or professional."
+  },
+  "ricardo": {
+    "name": "Ricardo Yrupailla",
+    "photo": "https://scontent.flim19-1.fna.fbcdn.net/v/t1.0-9/19756373_660943677433403_7137726336100017163_n.jpg?_nc_cat=111&_nc_ht=scontent.flim19-1.fna&oh=7102c97a378c887bf66e299b51186075&oe=5D17EFEA",
+    "team": "Champion Performance",
+    "introduction": "Hi i'm Ricardo, I like to drink coffee at the afternoon because i'm very sleepy after lunch, I love team work because we can do big things together, but sometimes I like  to focus on my work, I enter the zone!, an the signal  of that is that i put my headphone on, so on those times please let me focus. I like feedback, but i like it  more when there is a reasoning behind it."
+  },
+  "carlos": {
+    "name": "Carlos Sandoval",
+    "photo": "https://avatars3.githubusercontent.com/u/17531299?s=460&v=4",
+    "team": "Champion Performance",
+    "introduction": "Critical thinker, not a negative attitude. I see problems everywhere, and tend to want to fix them all! Chaos I love it when things are well thought out. I pay attention to details, and respect people who are thoughtful about how they do things. Makes me want to understand their motivations, and learn from them. That I’m a work-workaholic. I’m a high performer. Two very different things. Workaholics need to be busy, high-performers seek out challenges and get laser focused on surmounting those challenges. Get me excited!  In person!"
   }
 }

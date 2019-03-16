@@ -13,7 +13,9 @@ def controller(person)
   name = data_team_members[person]["name"]
   team = data_team_members[person]["team"]
   introduction = data_team_members[person]["introduction"]
+  photo = data_team_members[person]["photo"]
 
+  
   # get file template
   template = File.read("./templates/team_member.erb")
 
