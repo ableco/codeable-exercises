@@ -1,17 +1,8 @@
 require 'socket'
 require 'uri'
 require './controller/controller'
-# require './assets/css/style'
 
 WEB_ROOT = './public'
-
-# CONTENT_TYPE_MAPPING = {
-#   'html' => 'text/html',
-#   'txt' => 'text/plain',
-#   'png' => 'image/png',
-#   'jpg' => 'image/jpeg',
-#   'css' => 'text/css'
-# }
 
 def requested_file(request_line, socket)
   #Obtenemos la direccion en consulta
@@ -51,10 +42,10 @@ def requested_file(request_line, socket)
     name = paramstring.split('=')[1]
 
     response_from_string(controller(name), socket)
-  when /.css$/
-    puts "cssss"
-    content = "text/css"
-    response_from_path("./assets/css/band.css", socket, content)
+  # when /.css$/
+  #   puts "cssss"
+  #   content = "text/css"
+  #   response_from_path("./assets/css/band.css", socket, content)
   else
       print "something else"
   end
