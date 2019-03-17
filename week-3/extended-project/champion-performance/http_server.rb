@@ -16,7 +16,7 @@ end
 class RequestFile < RequestHandler
   def req
     request_uri = self.request[:uri]
-    path = File.join(WEB_ROOT, request_uri)
+    path = File.join('./', request_uri)
     self.send(path)
   end
 end
@@ -33,7 +33,7 @@ handler = HttpHandler.new('localhost', 2345)
 
 handler.url_router(
   {gate_regex: /^(\/)$/, process:HomePage}, # handles home page
-  {gate_regex: /^(\/\w+\.\w+)$/, process:RequestFile}, # handles an specific route
+  {gate_regex: /^(\/(\w+\/)*\w+\.\w+)$/, process:RequestFile}, # handles an specific route
   {gate_regex: /^(\/\?name=\w+)$/, process:MemberPage} # handles the member content
 )
 

@@ -1,9 +1,23 @@
 require 'socket'
 require './controller/controller'
 
+DEFAULT_CONTENT_TYPE = 'application/octet-stream'
+
+CONTENT_TYPE_MAPPING = {
+  'html' => 'text/html',
+  'txt' => 'text/plain',
+  'png' => 'image/png',
+  'jpg' => 'image/jpeg'
+}
+
+def content_type(path)
+  ext = File.extname(path).split(".").last
+  CONTENT_TYPE_MAPPING.fetch(ext, DEFAULT_CONTENT_TYPE)
+end
+
 
 class TCPSocket
-
+  #TODO: add content type
   def write_response(content)
     self.print "HTTP/1.1 200 OK\r\n" +
     "Content-Type: text/html\r\n" +
@@ -13,11 +27,11 @@ class TCPSocket
     self.print "\r\n"
     self.print content
   end
-
+ #TODO : add directory check
   def send_response(path)
     File.open(path, "rb") do |file|
       self.print "HTTP/1.1 200 OK\r\n" +
-                  "Content-Type: text/html\r\n" +
+                  "Content-Type: #{content_type(file)}\r\n" +
                   "Content-Length: #{file.size}\r\n" +
                   "Connection: close\r\n"
 
@@ -75,22 +89,26 @@ class HttpHandler
     STDERR.puts  "processing request"
     STDERR.puts  @uri_values
     self.clear_request()
-
+    c = 0
     @gate_arr.each do |gate|
       if gate[:gate_regex] === @uri_values
-        puts "match"
+        STDERR.puts "match #{c}"
         @request = self.parse_request(@uri_values)
         gate[:process].update(@socket)
         gate[:process].dispatch(@request)
         gate[:process].req
       end
+      c += 1
     end
     @socket.close
     STDERR.puts "ended processing "
   end
 
-  def parse_request(uri_values = '/')
+  def parse_request(uri_values)
+
+    request_uri = '/'
     request_vars_arr = []
+    vars_hash = []
     if uri_values.include?('?')
       request_uri, request_vars = uri_values.split('?')
       if request_vars.include?('&')
@@ -99,10 +117,13 @@ class HttpHandler
       else
         request_vars_arr << request_vars.split('=')
       end
-    end
+      request_vars_arr.map! {|v| [v[0].to_sym, v[1]]}
+      vars_hash = request_vars_arr.to_h
 
-    request_vars_arr.map! {|v| [v[0].to_sym, v[1]]}
-    vars_hash = request_vars_arr.to_h
+    else
+      #TODO: add secure uri
+      request_uri = uri_values
+    end
 
     {
       uri: request_uri,
