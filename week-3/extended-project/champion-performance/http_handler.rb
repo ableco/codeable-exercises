@@ -19,6 +19,7 @@ end
 
 class TCPSocket
   #TODO: add content type
+  #TODO: add header object
   def write_response(content)
     self.print "HTTP/1.1 200 OK\r\n" +
     "Content-Type: text/html\r\n" +
@@ -29,6 +30,7 @@ class TCPSocket
     self.print content
   end
  #TODO : add directory check
+ #TODO : add 404 response
   def send_response(path)
     File.open(path, "rb") do |file|
       self.print "HTTP/1.1 200 OK\r\n" +
@@ -106,7 +108,7 @@ class HttpHandler
   end
 
   def parse_request(uri_values)
-
+  #TODO: validate weird uri's
     request_uri = '/'
     request_vars_arr = []
     vars_hash = []
