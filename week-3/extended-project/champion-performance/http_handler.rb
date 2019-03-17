@@ -115,7 +115,7 @@ class HttpHandler
     if uri_values.include?('?')
       request_uri, request_vars = uri_values.split('?')
       if request_vars.include?('&')
-        request_vars_arr = request_vars.split('&')[1]
+        request_vars_arr = request_vars.split('&')
         request_vars_arr.map! {|str| str.split('=')}
       else
         request_vars_arr << request_vars.split('=')
