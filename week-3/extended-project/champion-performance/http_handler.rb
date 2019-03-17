@@ -6,6 +6,7 @@ DEFAULT_CONTENT_TYPE = 'application/octet-stream'
 CONTENT_TYPE_MAPPING = {
   'html' => 'text/html',
   'txt' => 'text/plain',
+  'css' => 'text/css',
   'png' => 'image/png',
   'jpg' => 'image/jpeg'
 }
