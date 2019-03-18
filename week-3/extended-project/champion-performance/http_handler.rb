@@ -1,8 +1,10 @@
 require 'socket'
 require './controller/controller'
 
+#default content type 
 DEFAULT_CONTENT_TYPE = 'application/octet-stream'
 
+# content types constants
 CONTENT_TYPE_MAPPING = {
   'html' => 'text/html',
   'txt' => 'text/plain',
@@ -11,16 +13,18 @@ CONTENT_TYPE_MAPPING = {
   'jpg' => 'image/jpeg'
 }
 
+#extract extension from file
 def content_type(path)
   ext = File.extname(path).split(".").last
   CONTENT_TYPE_MAPPING.fetch(ext, DEFAULT_CONTENT_TYPE)
 end
 
-
+#extend class tcpsocket from socket
+#tcpsocket class extend capabilities
 class TCPSocket
   #TODO: add content type
   #TODO: add header object
-  def write_response(content)
+  def write_response(content) # send a response from a string
     self.print "HTTP/1.1 200 OK\r\n" +
     "Content-Type: text/html\r\n" +
     "Content-Length: #{content.size}\r\n" +
@@ -31,7 +35,7 @@ class TCPSocket
   end
  #TODO : add directory check
  #TODO : add 404 response
-  def send_response(path)
+  def send_response(path) # send a response from a file
     File.open(path, "rb") do |file|
       self.print "HTTP/1.1 200 OK\r\n" +
                   "Content-Type: #{content_type(file)}\r\n" +
@@ -48,47 +52,50 @@ end
 
 
 
-class RequestHandler
+class RequestHandler # class to delegate a page actions to http_handler
   attr_reader :request
 
   def initialize(socket)
     @socket = socket
   end
 
+  # send response from a string
   def write(content)
     @socket.write_response(content)
   end
 
+  # send response from a file
   def send(path)
     @socket.send_response(path)
   end
 
+  #update the request hash
   def dispatch(request)
     @request = request
-    #parse request and extract data
   end
 
+  #update socket before sending a response
   def update(socket)
     @socket = socket
   end
 
 end
 
-
+#handles all application 
 class HttpHandler
 
-  def initialize(host, port)
+  def initialize(host, port) #initialize server
     @server = TCPServer.new('localhost', 2345)
   end
 
   def update_socket()
-    @socket = @server.accept
-    request_line = @socket.gets
+    @socket = @server.accept # waits for socket
+    request_line = @socket.gets # gets 
     @uri_values = request_line.split(" ")[1]
     STDERR.puts  "updated"
   end
 
-  def process_requests()
+  def process_requests() # 
     STDERR.puts  "processing request"
     STDERR.puts  @uri_values
     self.clear_request()
@@ -154,112 +161,3 @@ class HttpHandler
 
 
 end
-
-#
-# class HttpHandler
-#   attr_reader :request
-#
-#   def initialize(host, port)
-#     @server = TCPServer.new('localhost', 2345)
-#   end
-#
-#   def update_socket()
-#     @socket = @server.accept
-#     self.parse_request(@socket.gets)
-#   end
-#
-#   def parse_request(request_line)
-#     http_request = request_line.split(" ")[1]
-#     request_uri, request_vars = http_request.split('?')
-#
-#     request_vars_arr = request_vars.split('&')[1]
-#     request_vars_arr.map! {|str| str.split('=')}
-#
-#     @request = {
-#       uri: request_uri,
-#       vars: request_vars_arr.to_h
-#     }
-#   end
-#
-#   def url_router(*args)
-#
-#     request_uri  = @request_line.split(" ")[1]
-#
-#     args.each do |gate|
-#       if gate[:regex_gate] === request_uri
-#         gate_handler = gate[:process]
-#         if gate_handler.format == "file"
-#
-#           path   = URI.unescape(URI(request_uri).path)
-#
-#           clean = []
-#           parts = path.split("/")
-#
-#           parts.each do |part|
-#             next if part.empty? || part == '.'
-#             part == '..' ? clean.pop : clean << part
-#           end
-#
-#           path = File.join(WEB_ROOT, *clean)
-#
-#           response_from_path(path)
-#         end
-#
-#         if gate[:process].format == "string"
-#
-#           paramstring = request_uri.split('?')[1]
-#           name = paramstring.split('=')[1]
-#
-#           response_from_string(controller(name))
-#
-#         end
-#
-#       end
-#     end
-#
-#     @socket.close
-#   end
-#
-#
-#   def response_from_path(path) #sends html file from path
-#     path = File.join(path, 'index.html') if File.directory?(path) #adds index.html if path is a directory
-#
-#     if File.exist?(path) && !File.directory?(path) # check if it is a directory or a file
-#       File.open(path, "rb") do |file|
-#         @socket.print "HTTP/1.1 200 OK\r\n" +
-#                     "Content-Type: text/html\r\n" +
-#                     "Content-Length: #{file.size}\r\n" +
-#                     "Connection: close\r\n"
-#
-#         @socket.print "\r\n"
-#
-#         IO.copy_stream(file, @socket)
-#       end
-#     else
-#       message = "File not found\n"  # shows the error message
-#
-#       @socket.print "HTTP/1.1 404 Not Found\r\n" +
-#                   "Content-Type: text/plain\r\n" +
-#                   "Content-Length: #{message.size}\r\n" +
-#                   "Connection: close\r\n"
-#
-#       @socket.print "\r\n"
-#
-#       @socket.print message
-#     end
-#
-#   end
-#
-#   def response_from_string(file)
-#
-#     @socket.print "HTTP/1.1 200 OK\r\n" +
-#     "Content-Type: text/html\r\n" +
-#     "Content-Length: #{file.size}\r\n" +
-#     "Connection: close\r\n"
-#
-#     @socket.print "\r\n"
-#     @socket.print file
-#
-#   end
-#
-# end
