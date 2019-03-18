@@ -1,108 +1,43 @@
 require 'socket'
 require 'uri'
 require './controller/controller'
+require './http_handler'
 
 WEB_ROOT = './public'
 
-def requested_file(request_line, socket)
-  #Obtenemos la direccion en consulta
-  request_uri  = request_line.split(" ")[1]
-  #Mostramos en consola la direccion en consulta
-  puts "petition to : #{request_uri}"
-  content = "text/html"
-  #Validamos
-  case request_uri
-  when /^(\/)$/
 
-    puts "first option"
-    response_from_path(WEB_ROOT, socket, content)
-
-  when /^(\/\w+\.\w+)$/
-
-    puts "second option"
-    path   = URI.unescape(URI(request_uri).path)
-
-    clean = []
-    parts = path.split("/")
-
-    parts.each do |part|
-      next if part.empty? || part == '.'
-      part == '..' ? clean.pop : clean << part
-    end
-
-    path = File.join(WEB_ROOT, *clean)
-    puts "path"
-    puts path
-    response_from_path(path, socket, content)
-
-  when /^(\/\?name=\w+)$/
-    puts "third option"
-
-    paramstring = request_uri.split('?')[1]
-    name = paramstring.split('=')[1]
-
-    response_from_string(controller(name), socket)
-  # when /.css$/
-  #   puts "cssss"
-  #   content = "text/css"
-  #   response_from_path("./assets/css/band.css", socket, content)
-  else
-      print "something else"
-  end
-
-end
-
-def response_from_string(file, socket)
-
-  socket.print "HTTP/1.1 200 OK\r\n" +
-  "Content-Type: text/html\r\n" +
-  "Content-Length: #{file.size}\r\n" +
-  "Connection: close\r\n"
-
-  socket.print "\r\n"
-  socket.print file
-
-  #IO.copy_stream(file, socket)
-end
-
-def response_path_exist(file,socket)
-  socket.print "HTTP/1.1 200 OK\r\n" +
-                       "Content-Type: text/html\r\n" +
-                       "Content-Length: #{file.size}\r\n" +
-                       "Connection: close\r\n"
-  socket.print "\r\n"
-end
-
-
-def response_from_path(path, socket, type_content)
-  path = File.join(path, 'index.html') if File.directory?(path)
-
-  if File.exist?(path) && !File.directory?(path)
-    File.open(path, "rb") do |file|
-      response_path_exist(file,socket)
-      IO.copy_stream(file, socket)
-      end
-  else
-    message = "File not found\n"
-
-    socket.print "HTTP/1.1 404 Not Found\r\n" +
-                 "Content-Type: #{type_content}\r\n" +
-                 "Content-Length: #{message.size}\r\n" +
-                 "Connection: close\r\n"
-
-    socket.print "\r\n"
-
-    socket.print message
+class HomePage < RequestHandler
+  def req
+    path = File.join(WEB_ROOT, 'index.html')
+    self.send(path)
   end
 end
 
+class RequestFile < RequestHandler
+  def req
+    request_uri = self.request[:uri]
+    path = File.join('./', request_uri)
+    self.send(path)
+  end
+end
 
-server = TCPServer.new('localhost', 2345)
+class MemberPage < RequestHandler
+  def req
+    name = self.request[:vars][:name]
+    content = controller(name)
+    self.write(content)
+  end
+end
+
+handler = HttpHandler.new('localhost', 2345)
+
+handler.url_router(
+  {gate_regex: /^(\/)$/, process:HomePage}, # handles home page
+  {gate_regex: /^(\/(\w+\/)*\w+\.\w+)$/, process:RequestFile}, # handles an specific route
+  {gate_regex: /^(\/\?name=\w+)$/, process:MemberPage} # handles the member content
+)
+
 loop do
-  socket = server.accept
-  request_line = socket.gets
-  puts request_line
-  requested_file(request_line, socket)
-  socket.close
+  handler.update_socket
+  handler.process_requests
 end
-
