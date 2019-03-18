@@ -9,7 +9,7 @@ class MyStack
   end
 
   def pop()
-      @data.pop()
+      @data.pop
   end
 
   def top()
