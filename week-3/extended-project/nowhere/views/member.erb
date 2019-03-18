@@ -30,7 +30,7 @@
       rel="stylesheet"
     />
   </head>
-  <body class="menber">
+  <body class="menber team">
     <header class="header">
       <div class="container-fluid px-lg-5">
         <!-- nav -->
@@ -53,7 +53,7 @@
       <section class="hand-crafted bg-light py-5">
         <div class="container py-xl-5 py-lg-3">
           <div class="row banner-grids">
-            <div class="col-lg-6 banner-image">
+            <div class="col-lg-4 banner-image">
               <div class="effect-w3">
                 <img
                   src=<%= TEAM[member.to_sym][:image] %>
@@ -63,41 +63,41 @@
                 />
               </div>
             </div>
-            <div class="col-lg-6 last-img pl-lg-5 p-3">
+            <div class="col-lg-8 last-img pl-lg-5 p-3">
               <h3 class="tittle mb-4">
                 <%= TEAM[member.to_sym][:name] %>
               </h3>
-              <p class="mb-0">
+              <p class="mb-0 bolder">
                 What are some honest, unfiltered things about you?
               </p>
               <p class="mb-0">
                 <%= TEAM[member.to_sym][:honest] %>
               </p>
-              <p class="mb-0">
+              <p class="mb-0 bolder">
                 What drives you nuts?
               </p>
               <p class="mb-0">
                 <%= TEAM[member.to_sym][:nuts] %>
               </p>
-               <p class="mb-0">
+               <p class="mb-0 bolder">
                 How can people earn an extra gold star with you?
               </p>
               <p class="mb-0">
                 <%= TEAM[member.to_sym][:gold_star] %>
               </p>
-              <p class="mb-0">
+              <p class="mb-0 bolder">
                 What are some things that people might misunderstand about you that you should clarify?
               </p>
               <p class="mb-0">
                 <%= TEAM[member.to_sym][:misunderstand] %>
               </p>
-              <p class="mb-0">
+              <p class="mb-0 bolder">
                 What's the best way to convince you to do something?
               </p>
               <p class="mb-0">
                 <%= TEAM[member.to_sym][:convince] %>
               </p>
-              <p class="mb-0">
+              <p class="mb-0 bolder">
                 How do you like to get feedback?
               </p>
               <p class="mb-0">

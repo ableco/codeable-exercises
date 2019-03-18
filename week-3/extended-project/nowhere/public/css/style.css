@@ -14,6 +14,9 @@ body {
     align-items: center;
     padding-top: 1em;
   }
+  body.team {
+    height: initial;
+  }
 }
 
 body a {
@@ -1633,3 +1636,7 @@ a.move-top span {
 }
 
 /*--//responsive--*/
+
+.bolder {
+  font-weight: bold;
+}
