@@ -21,10 +21,3 @@ class MyQueue
   end
   
 end
-  
-  # Your MyQueue object will be instantiated and called as such:
-  # obj = MyQueue.new()
-  # obj.push(x)
-  # param_2 = obj.pop()
-  # param_3 = obj.peek()
-  # param_4 = obj.empty()
