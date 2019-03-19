@@ -1,0 +1,73 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(33, 33, 33);
+  margin: 0px;
+}
+
+.initial {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 300%;
+  text-align: center;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 200%;
+  text-align: center;
+}
+
+.username {
+  font-weight: 300;
+  font-size: 150%;
+  text-align: center;
+}
+
+.social-media {
+  text-align: center;
+}
+
+.social-media img {
+  padding: 5px;
+}
+
+.section-title {
+  background-color: rgb(33, 33, 33);
+}
+
+.section-title div {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 1px;
+}
+
+.section-title p {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.project {
+  border: 1px solid rgb(168, 168, 168);
+  border-radius: 15px;
+  margin: 3% 5%;
+  text-align: center;
+}
+
+.project-title {
+  font-size: 200%;
+}
+
+.project-title a {
+  color:rgb(33, 33, 33);
+  text-decoration:none;
+}
+
+.project-content {
+  margin: 0 15px;
+}
