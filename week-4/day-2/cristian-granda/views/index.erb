@@ -1,0 +1,26 @@
+<div class="initial">
+  <h1 class="title animated fadeInDown">Cristian Berly Granda Pastor</h1>
+  <h2 class="subtitle animated fadeInDown">Learning new things at Codeable</h2>
+  <h3 class="username animated fadeInDown">@cristianbgp</h3>
+  <div class="social-media animated fadeInDown delay-1s">
+    <a href="https://github.com/cristianbgp" target="_blank"><img src="img/GitHub-Mark-64px.png" alt="Github" /></a>
+    <a href="https://twitter.com/cristianbgp" target="_blank"><img src="img/twitter-logo.png" alt="Twitter" /></a>
+  </div>
+</div>
+<div class="section-title">
+  <div>
+    <p>Projects</p>
+  </div>
+</div>
+<% @projects.each do |project| %>
+<div class="project">
+  <div class="project-title">
+    <a href="<%= project[:project_url] %>" target="_blank">
+      <p><%= project[:project_title] %></p>
+    </a>
+  </div>
+  <div class="project-content">
+    <p><%= project[:project_content] %></p>
+  </div>
+</div>
+<% end %>
