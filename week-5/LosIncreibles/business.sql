@@ -1,0 +1,11 @@
+insert into business values(default,'Holiday dreams','Jamie Lopez');
+insert into business values(default,'Round ''nd Around','Sarah Connor');
+insert into business values(default,'Elsa''s Holidays','Ella Hanne');
+insert into business values(default,'Beautiful Earth','Janet Silva');
+insert into business values(default,'Travel & Food','Ted Spice');
+insert into business values(default,'Show you the world','Kamil Rendran');
+insert into business values(default,'Salvatore''s tours','Sergie Salvatore');
+insert into business values(default,'Bill & Gates Vacations','Billy Elliot');
+insert into business values(default,'High demand tours','Louis Ni');
+insert into business values(default,'Travel with Pets','Luna Croix');
+insert into business values(default,'Mothers with Children','Milton Mala');
