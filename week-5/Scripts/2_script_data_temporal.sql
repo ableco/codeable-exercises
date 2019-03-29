@@ -1,4 +1,4 @@
-INSERT INTO temporal VALUES ('Transaction_date','Product',Days,Price,'Payment_Type','Sold_By','Contact','Customer_Name','Customer_City','Customer_State','Customer_Country','POS');
+SET datestyle = "ISO, MDY";
 INSERT INTO temporal VALUES ('1/2/09 6:17','Caribbean Tour',9,1200,'Mastercard','Holiday dreams','Jamie Lopez','carolina','Basildon','England','United Kingdom','Whatsapp');
 INSERT INTO temporal VALUES ('1/2/09 4:53','Caribbean Tour',9,1200,'Visa','Round ''nd Around','Sarah Connor','Betina','Parkville','MO','United States','Web');
 INSERT INTO temporal VALUES ('1/2/09 13:08','Caribbean Tour',9,1200,'Mastercard','Holiday dreams','Jamie Lopez','Federica e Andrea','Astoria','OR','United States','Facebook');
