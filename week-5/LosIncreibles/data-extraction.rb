@@ -1,5 +1,11 @@
 require 'csv'
 
+class Array
+    def getId(param)
+        self.index(param) + 1
+    end
+end
+
 
 customers = CSV.read('SalesJan2009.csv')
 
@@ -18,12 +24,16 @@ businessArray.each do |row|
 end
 
 namesArray = businessArray.map {|b| b[0]}
-p namesArray.index('Mothers with Children')+1
+p namesArray.getId('Mothers with Children')
 
+productArray = ['Caribbean Tour','Inka trail','Romantic Paris']
+p productArray.getId('Caribbean Tour')
 
+posArray = ['Facebook','Shop','Web','Whatsapp']
+p posArray.getId('Facebook')
 
-
-
+paymentArray = ['Amex','Diners','Mastercard','Visa']
+p paymentArray.getId('Diners')
 
 
 # customerArray = customers.map{|row| row[7..10]}
