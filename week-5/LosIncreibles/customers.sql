@@ -1,4 +1,3 @@
-insert into customer values(default,'Customer_Name','Customer_City','Customer_State','Customer_Country');
 insert into customer values(default,'carolina','Basildon','England','United Kingdom');
 insert into customer values(default,'Betina','Parkville','MO','United States');
 insert into customer values(default,'Federica e Andrea','Astoria','OR','United States');
