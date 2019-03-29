@@ -8,4 +8,3 @@ end
 
 summation(5)
 
-43
