@@ -1,0 +1,11 @@
+INSERT INTO agency  (a_name, a_contact) VALUES ('Beautiful Earth', 'Janet Silva');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Bill & Gates Vacations', 'Billy Elliot');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Elsas Holidays', 'Ella Hanne');
+INSERT INTO agency  (a_name, a_contact) VALUES ('High demand tours', 'Louis Ni');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Holiday dreams', 'Jamie Lopez');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Mothers with Children', 'Milton Mala');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Round nd Around', 'Sarah Connor');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Salvatores tours', 'Sergie Salvatore');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Show you the world', 'Kamil Rendran');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Travel & Food', 'Ted Spice');
+INSERT INTO agency  (a_name, a_contact) VALUES ('Travel with Pets', 'Luna Croix');
