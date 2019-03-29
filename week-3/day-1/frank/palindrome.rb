@@ -1,0 +1,15 @@
+require 'open-uri'
+
+base_url = "https://s3-us-west-2.amazonaws.com/learnenough/phrases.txt"
+save_file = "palindromes_file.txt"
+
+# Get the contents of a remote file
+content  = open(base_url) {|f| f.read }
+
+lines = content.split("/n")
+words = lines.map { |line| line.split(" ") }.flatten
+palindrome_words = words.select { |word| word == word.reverse  }
+
+File.open(save_file, "w") do |file| 
+  file.write(palindrome_words.join("\n"))
+end
