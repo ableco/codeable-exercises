@@ -16,6 +16,9 @@ fileSales=File.open("sales.sql","w")
 fileBusiness=File.open("business.sql","w")
 
 businessArray = customers.map{|row| row[5..6]}.uniq[1..-1]
+customersArray = customers.map{|row| row[7..10]}.uniq[1..-1]
+
+p customersArray
 
 
 businessArray.each do |row|
