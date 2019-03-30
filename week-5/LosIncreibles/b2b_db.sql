@@ -36,8 +36,7 @@ CREATE TABLE sales (
   id_customer INTEGER REFERENCES customer,
   id_payment INTEGER REFERENCES payment,
   id_post INTEGER REFERENCES pos,
-  id_business INTEGER REFERENCES business,
-  contact VARCHAR(30)
+  id_business INTEGER REFERENCES business
 );
 
 INSERT INTO products (id_product, name, days, price)  VALUES
