@@ -13,14 +13,14 @@ def products_customers
     products_name << row[1]
     products_days << row[2]
     products_price << row[3]
-    customer_name << row[7].gsub(/\'/,"`")
-    customer_city << row[8].gsub(/\'/,"`")
+    customer_name << row[7].gsub(/\'/,"''")
+    customer_city << row[8].gsub(/\'/,"''")
     if row[9].nil?
       customer_state << ""
     else
-      customer_state << row[9].gsub(/\'/,"`")
+      customer_state << row[9].gsub(/\'/,"''")
     end
-    customer_country << row[10].gsub(/\'/,"`")
+    customer_country << row[10].gsub(/\'/,"''")
   end 
   
   products_name.uniq!
@@ -55,7 +55,7 @@ def transactions
     end
     customer_counter = customer_counter + 1
 
-    file.puts "INSERT INTO transactions(date_time, product_id, payment, pos, customer_id, seller, contact) VALUES ('#{row[0]}', '#{data_product}', '#{row[4]}', '#{row[11]}', '#{customer_counter}', '#{row[5].gsub(/\'/, "`")}', '#{row[6].gsub(/\'/, "`")}');"
+    file.puts "INSERT INTO transactions(date_time, product_id, payment, pos, customer_id, seller, contact) VALUES ('#{row[0]}', '#{data_product}', '#{row[4]}', '#{row[11]}', '#{customer_counter}', '#{row[5].gsub(/\'/, "''")}', '#{row[6].gsub(/\'/, "''")}');"
   end
 end
 
