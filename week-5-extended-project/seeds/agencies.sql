@@ -1,0 +1,11 @@
+INSERT INTO agencies VALUES (default, 'Holiday dreams', 'Jamie Lopez');
+INSERT INTO agencies VALUES (default, 'Round ''nd Around', 'Sarah Connor');
+INSERT INTO agencies VALUES (default, 'Elsa''s Holidays', 'Ella Hanne');
+INSERT INTO agencies VALUES (default, 'Beautiful Earth', 'Janet Silva');
+INSERT INTO agencies VALUES (default, 'Travel & Food', 'Ted Spice');
+INSERT INTO agencies VALUES (default, 'Show you the world', 'Kamil Rendran');
+INSERT INTO agencies VALUES (default, 'Salvatore''s tours', 'Sergie Salvatore');
+INSERT INTO agencies VALUES (default, 'Bill & Gates Vacations', 'Billy Elliot');
+INSERT INTO agencies VALUES (default, 'High demand tours', 'Louis Ni');
+INSERT INTO agencies VALUES (default, 'Travel with Pets', 'Luna Croix');
+INSERT INTO agencies VALUES (default, 'Mothers with Children', 'Milton Mala');
