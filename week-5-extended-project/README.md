@@ -1,6 +1,6 @@
-# We are space team
+# We are The space team
 
-To execute this project you only need to execute these commands:
+To execute this project, only need to execute these commands:
 
 ```sh
 $ chmod +x init.sh
