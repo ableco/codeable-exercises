@@ -23,10 +23,8 @@ data.each do |row|
     file_tours.puts "INSERT INTO tours VALUES (default, '#{row[1]}', '#{row[2]}', '#{row[3]}');"
   end
 
-  unless customers.include? row[8]
-    customers << row[8]
-    file_customers.puts "INSERT INTO customers VALUES (default, '#{row[7]}', '#{row[8]}', '#{row[9]}', '#{row[10]}');"
-  end
+  customers << row[8]
+  file_customers.puts "INSERT INTO customers VALUES (default, '#{row[7]}', '#{row[8]}', '#{row[9]}', '#{row[10]}');"
   
   unless agencies.include? row[5]
     agencies << row[5]

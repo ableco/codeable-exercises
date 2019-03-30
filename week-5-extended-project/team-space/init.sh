@@ -1,5 +1,6 @@
 #!/bin/bash
-
+echo "generate seeds"
+ruby seed.rb 
 echo "drop database"
 dropdb tours
 echo "create database"
