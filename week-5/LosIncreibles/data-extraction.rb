@@ -39,23 +39,20 @@ paymentArray = ['Amex','Diners','Mastercard','Visa']
 p paymentArray.getId('Diners')
 
 
-# customerArray = customers.map{|row| row[7..10]}
-
-# salesArray = customers.map{|row| row[0]}
-
 customers = customers[1..-1]
-customers.each do |row|
+customers.each_with_index do |row,index|
      
-#     #  puts row[5..6].inspect
-#     #  fileBusinessArray = row[5..6]
+
     p businessNamesArray
     p row[5]
     idProduct = productArray.getId(row[1])
     idBusiness = businessNamesArray.getId(row[5])
+    idPayment = paymentArray.getId(row[4])
+    idPos = posArray.getId(row[11])
 
 
     fileCustomers.puts "insert into customer values(default,'#{row[7]}','#{row[8]}','#{row[9]}','#{row[10]}');"
-    fileSales.puts "insert into sales values(default,'#{row[0]}',#{idProduct},#{idBusiness},'#{row[]}');"
+    fileSales.puts "insert into sales values(default,'#{row[0]}',#{idProduct},#{idBusiness},#{index+1},#{idPayment},#{idPos});"
 end
 
 # puts customers.inspect
