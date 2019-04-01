@@ -25,6 +25,7 @@ LIMIT 1;
 
 
 --What are the number and amount of sales per POS? Is there a clear channel where we should focus our efforts?
+-- Whatsapp is the channel where the organization must put all its efforts.
 SELECT s.pos, count(s.id), sum(t.price) as SALES from sales as s
 inner join tours as t on s.tour_id = t.id
 group by pos
