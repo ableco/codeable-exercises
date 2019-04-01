@@ -1,7 +1,8 @@
 -- Show the total amount of sales in January 2009
 
-SELECT COUNT(id_transaction)
-FROM transactions;
+SELECT SUM(p.price)
+FROM transactions as t
+INNER JOIN products as p on p.id_product = t.id_product;
 
 -- Build a report of number of sales and total amount by each B2B customer
 
