@@ -31,4 +31,9 @@ group by pos
 order by SALES desc;
 
 --Per each tour, where do customers come from? Show the top 5 locations
-(In-Progress)
+select * from
+(select tmp.name, tmp.country, tmp.top, 
+ row_number() over (partition by tmp.name order by top desc) as rownum from 
+(select t.name, c.country, count(s.id) as top from sales as s inner join tours as t on s.tour_id = t.id inner join customers as c on s.customer_id=c.id group by t.name, c.country)tmp
+)tmp2
+where rownum <6;
