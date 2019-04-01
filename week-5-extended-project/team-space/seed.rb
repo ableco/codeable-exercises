@@ -13,7 +13,7 @@ customers = []
 
 data.each do |row|
   row = row.map do |content_cell|
-    r.gsub("'", "''") unless content_cell.nil?
+    content_cell.gsub("'", "''") unless content_cell.nil?
   end
 
   row[0] = "to_timestamp('#{row[0]}', 'MM/DD/YY HH24:MI')"
